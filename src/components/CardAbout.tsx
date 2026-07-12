@@ -8,7 +8,7 @@ interface CardAboutProps {
 
 export function CardAbout({ title, icon, description }: CardAboutProps) {
     return (
-        <>
+       
             <div className="border-[0.5px] 
                 md:max-w-[280px]
                 flex flex-col h-35 justify-center items-start 
@@ -21,6 +21,6 @@ export function CardAbout({ title, icon, description }: CardAboutProps) {
                 <p className="font-extrabold">{title}</p>
                 <p className="font-md text-gray-700">{description}</p>
             </div>
-        </>
+  
     )
 }
