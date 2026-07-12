@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme{
+    --color-bg-hero:#040911;
+    --color-bg-indigo:#3761da;
+    --color-bg-indigo-variant:#345fe9;
+    
+}
+
+*{
+    @apply 
+    box-border 
+    transition-all;
+}
+
+button{
+    @apply cursor-pointer ;
+}
+
+a{
+    @apply decoration-0;
+}
+
+.desktop-menu-items{
+    @apply
+    hover:text-bg-indigo
+    active:text-bg-indigo
+    cursor-pointer
+}
+
+.mobile-menu-items{
+    @apply
+    transition-all 
+    active:translate-x-4 
+    hover:translate-x-4;
+}
+
+.button-normal{
+    @apply 
+    border-none 
+    rounded-md 
+    bg-bg-indigo 
+    py-[0.5rem] px-3 
+    hover:bg-indigo-400
+    active:bg-indigo-400;
+}
+.button-outline{
+    @apply 
+    py-2 px-3
+    border
+    border-bg-indigo 
+    rounded-md 
+    hover:bg-indigo-400
+    active:bg-indigo-400
+    hover:border-indigo-400
+    active:border-indigo-400
+
+    ;
+}
+
+.hero-icons-contact{
+    @apply
+    hover:text-bg-indigo
+    hover:scale-125
+    active:text-bg-indigo
+    active:scale-125
+    cursor-pointer
+}
