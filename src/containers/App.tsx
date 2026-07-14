@@ -211,12 +211,31 @@ function App() {
       mt-9
       '
       >
+        <div className='text-center'>
+          <p className='font-extrabold text-bg-indigo'>TECNOLOGIAS</p>
+          <h1 className='font-extrabold'>Minhas principais ferramentas</h1>
+        </div>
+
+        <div className='grid
+        grid-cols-2
+        '>
+
         <div>
-          
+          <div>
+              
+          </div>
         </div>
 
 
-        a
+        <div>
+          <div>
+
+          </div>
+        </div>
+        
+          
+        </div>
+
       </section>
 		</>
 	);
