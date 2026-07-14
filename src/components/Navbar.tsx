@@ -1,7 +1,7 @@
 
-import logo from '../assets/dev-frontend-logo1.png'
-import { useState } from 'react'
 import { ListIcon } from '@phosphor-icons/react'
+import { useState } from 'react'
+import logo from '../assets/dev-frontend-logo1.png'
 export function NavBar() {
     const [navMenu, setNavMenu] = useState<boolean>(false)
 
@@ -21,10 +21,12 @@ export function NavBar() {
         lg:px-15
         `}>
             <nav className="flex items-center justify-between w-full h-full">
-                <img src={logo} className='object-cover 
+                <img
+                alt='logo'
+                src={logo} className='object-cover 
                 h-15
-                
-                w-auto' />
+                w-auto' 
+                />
 
                 <div className='hidden 
                 md:flex

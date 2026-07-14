@@ -110,15 +110,21 @@ function App() {
 
 			{/* SOBRE MIM */}
 			<section
-				className="grid relative mt-28 px-7
-      grid-cols-1
-      md:grid-cols-2
+				className="
+        min-w-full
+        grid mt-28 px-7
+        grid-cols-1
+        md:grid-cols-2
+        md:justify-center md:items-center
+        md:gap-8
+          
       "
 			>
 				<div
 					className="flex 
-        leading-7 flex-col items-start justify-center
-        lg:gap-3
+          leading-7 flex-col items-start justify-center
+          lg:gap-3
+          
         "
 				>
 					<p
@@ -156,14 +162,18 @@ function App() {
 				</div>
 
 				<div
-					className="mt-8 grid grid-cols-1 
+					className="mt-8
+          grid grid-cols-1 
           gap-2
-          md:grid-flow-col md:auto-cols-max md:justify-center items-center 
-
-          bg-red-400
+          md:grid-cols-2 md:justify-center md:items-center 
+          
+          
         "
 				>
-					<div className="flex flex-col gap-2">
+					<div className="flex flex-col gap-2
+          
+          md:items-end
+          ">
 						<CardAbout
 							title="Formação"
 							description="Tec. em Informática p/ Web - IFRN"
@@ -171,7 +181,8 @@ function App() {
 						/>
 						<CardAbout
 							title="Experiência"
-							description="Projetos acadêmicos e pessoais"
+              custom='w-full'
+							description="Projetos acadêmicos"
 							icon={<BriefcaseIcon size={28} className="text-bg-indigo" />}
 						/>
 					</div>
@@ -189,6 +200,24 @@ function App() {
 					</div>
 				</div>
 			</section>
+			{/* FIM DO SOBRE MIM */}
+
+			{/* TECNOLIGIAS QUE UTILIZO */}
+      <section
+      className='
+      bg-bg-tecnologies-section
+      w-full
+      p-5
+      mt-9
+      '
+      >
+        <div>
+          
+        </div>
+
+
+        a
+      </section>
 		</>
 	);
 }
