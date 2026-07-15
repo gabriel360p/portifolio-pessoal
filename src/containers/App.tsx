@@ -13,6 +13,8 @@ import { Button } from '../components/Button';
 // import { Tecnologies } from "../components/Tecnologies"
 import { CardAbout } from '../components/CardAbout';
 import { NavBar } from '../components/Navbar';
+import { CardTecnolgies } from '../components/CardTecnologies';
+import { csslogo, githubLogo, gitLogo, htmlLogo, jsLogo, ReactLogo, tailwindLogo, tsLogo } from '../utils/FerramentasIconsExport';
 
 function App() {
 	return (
@@ -181,7 +183,7 @@ function App() {
 						/>
 						<CardAbout
 							title="Experiência"
-              custom='w-full'
+							custom='w-full'
 							description="Projetos acadêmicos"
 							icon={<BriefcaseIcon size={28} className="text-bg-indigo" />}
 						/>
@@ -203,40 +205,37 @@ function App() {
 			{/* FIM DO SOBRE MIM */}
 
 			{/* TECNOLIGIAS QUE UTILIZO */}
-      <section
-      className='
-      bg-bg-tecnologies-section
-      w-full
-      p-5
-      mt-9
-      '
-      >
-        <div className='text-center'>
-          <p className='font-extrabold text-bg-indigo'>TECNOLOGIAS</p>
-          <h1 className='font-extrabold'>Minhas principais ferramentas</h1>
-        </div>
+			<section
+				className='
+				bg-bg-tecnologies-section
+				w-full
+				p-5
+				mt-9
+				flex flex-col
+				gap-5
+				'
+			>
+				<div className='text-center'>
+					<p className='font-extrabold text-bg-indigo'>TECNOLOGIAS</p>
+					<h1 className='font-extrabold'>Minhas principais ferramentas</h1>
+				</div>
 
-        <div className='grid
-        grid-cols-2
-        '>
+				<div className='
+				flex flex-wrap gap-x-5 gap-y-3
+				justify-center items-center
+				'>
+					<CardTecnolgies title='HTML'figure_path={htmlLogo} link='https://developer.mozilla.org/pt-BR/docs/Web/HTML'/>
+					<CardTecnolgies title='CSS' figure_path={csslogo} link='https://developer.mozilla.org/pt-BR/docs/Web/CSS'/>
+					<CardTecnolgies title='JavaScript' figure_path={jsLogo} link='https://developer.mozilla.org/pt-BR/docs/Web/JavaScript'/>
+					<CardTecnolgies title='TypeScript' figure_path={tsLogo} link='https://www.typescriptlang.org/'/>
+					<CardTecnolgies title='React' figure_path={ReactLogo} link='https://react.dev/'/>
+					<CardTecnolgies title='Git' figure_path={gitLogo} link='https://git-scm.com/'/>
+					<CardTecnolgies title='GitHub' figure_path={githubLogo} link='https://github.com/gabriel360p'/>
+					<CardTecnolgies title='Tailwind' figure_path={tailwindLogo} link='https://tailwindcss.com/'/>
 
-        <div>
-          <div>
-              
-          </div>
-        </div>
+				</div>
 
-
-        <div>
-          <div>
-
-          </div>
-        </div>
-        
-          
-        </div>
-
-      </section>
+			</section>
 		</>
 	);
 }
