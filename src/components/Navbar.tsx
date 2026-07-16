@@ -2,13 +2,16 @@
 import { ListIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
 import logo from '../assets/dev-frontend-logo1.png'
+import { ScrollHook } from '../hooks/ScrollHook'
 export function NavBar() {
     const [navMenu, setNavMenu] = useState<boolean>(false)
+    const scrollPosition = ScrollHook();
 
     function handleMenuState(): void {
         setNavMenu(!navMenu)
-        console.log(navMenu)
+        // console.log(navMenu)
     }
+    // console.log(scrollPosition)
 
     return (
         <header className={`
@@ -36,10 +39,20 @@ export function NavBar() {
                     text-xl
                     font-semibold
                     text-white'>
-                        <a href='#inicio' className="desktop-menu-items">Inicio</a>
-                        <a href='#sobre' className="desktop-menu-items">Sobre</a>
+
+                        <a href='#inicio' className={`
+                        desktop-menu-items ${scrollPosition<=400?'text-bg-indigo':''}`}>Inicio</a>
+
+                        <a href='#sobre' className={`
+                        desktop-menu-items ${scrollPosition>=400&&scrollPosition<=800?'text-bg-indigo':''}`}>Sobre</a>
+
+                        <a href='#sobre' className={`
+                        desktop-menu-items ${scrollPosition>=800&&scrollPosition<=1055?'text-bg-indigo':''}`}>Tecnologias</a>
+
+                        <a href='#sobre' className={`
+                        desktop-menu-items ${scrollPosition>=1056&&scrollPosition<=1200?'text-bg-indigo':''}`}>Formações</a>
+
                         <a href='#projetos' className="desktop-menu-items">Projetos</a>
-                        <a href='#tecnologias' className="desktop-menu-items">Tecnologias</a>
                         <a href='#contato' className="desktop-menu-items">Contato</a>
                     </div>
                 </div>
@@ -58,6 +71,7 @@ export function NavBar() {
                     text-white'>
                         <a className='mobile-menu-items' href="">Inicio</a>
                         <a className='mobile-menu-items' href="">Sobre</a>
+                        <a className='mobile-menu-items' href="">Formações</a>
                         <a className='mobile-menu-items' href="">Projeto</a>
                         <a className='mobile-menu-items' href="">Tecnologias</a>
                         <a className='mobile-menu-items' href="">Contato</a>

@@ -6,12 +6,14 @@ interface ButtonProps {
     fullWidth?: boolean;
     personalize?: string
     icon?: ReactNode;
+    onclick:React.MouseEventHandler<HTMLButtonElement>
 }
 
-export function Button({ title, variant, fullWidth, personalize, icon }: ButtonProps) {
+export function Button({ title, onclick, variant, fullWidth, personalize, icon }: ButtonProps) {
     return (
-        <>
-            <button className={`
+        <button 
+            onClick={onclick}
+            className={`
             button-${variant}
             ${fullWidth ? 'w-full' : 'size-fit'}
             ${personalize}
@@ -19,6 +21,5 @@ export function Button({ title, variant, fullWidth, personalize, icon }: ButtonP
             >
                 {title}
             </button>
-        </>
     )
 }

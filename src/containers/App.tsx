@@ -10,13 +10,24 @@ import {
 } from '@phosphor-icons/react';
 import profile from '../assets/foto-profissional.png';
 import { Button } from '../components/Button';
-// import { Tecnologies } from "../components/Tecnologies"
 import { CardAbout } from '../components/CardAbout';
 import { NavBar } from '../components/Navbar';
 import { CardTecnolgies } from '../components/CardTecnologies';
 import { csslogo, githubLogo, gitLogo, htmlLogo, jsLogo, ReactLogo, tailwindLogo, tsLogo } from '../utils/FerramentasIconsExport';
+import { CardCertificado } from '../components/CardCertificado';
+import { bills, certHt, cssInter, dgrid, fullStack, ifrn, jsNode, jsV, jsVI, pEngi, reactBonus, zero } from '../utils/CertificadosExport';
+import { SizeHook } from '../hooks/SizeHook';
+import { div } from 'motion/react-client';
+import { useState } from 'react';
 
 function App() {
+	const size = SizeHook();
+	const [showCertifcates, setShowCertifcates]=useState<boolean>(false)
+
+	function handleShowCertifcates(){
+		setShowCertifcates(!showCertifcates)
+	}
+
 	return (
 		<>
 			<NavBar />
@@ -236,6 +247,60 @@ function App() {
 				</div>
 
 			</section>
+			{/* FIM TECNOLIGIAS QUE UTILIZO */}
+
+			{/* MINHAS CERTIFICAÇÕES */}
+			<section
+				className='
+				flex flex-col w-full
+				p-5 gap-4
+				justify-center
+				items-center
+				'
+			>
+				<div className='text-center'>
+					<p className='font-extrabold text-bg-indigo'>FORMAÇÕES</p>
+					<h1 className='font-extrabold'>Certificados</h1>
+				</div>
+
+				<div className='
+					flex flex-wrap gap-y-5
+					gap-x-4
+					lg:gap-x-6
+					xl:gap-x-8
+					justify-center items-center
+					'>
+					<CardCertificado title='Téc. Informática' school={'IFRN - Caicó'} duration='2020 - 2024' photo={ifrn}/>	
+					<CardCertificado title='Prog. com I.A' school={'DevClub'} duration='2026' photo={zero}/>	
+					<CardCertificado title='Prog. FullStack' school={'DevClub'} duration='2026' photo={fullStack}/>	
+					<CardCertificado title='Formação em Engenharia de Prompt' school={'DevClub'} duration='2026' photo={pEngi}/>	
+
+					{(size.widthSize>=659||showCertifcates)?(
+						<>
+							<CardCertificado title='HTML - Front End Club' school={'DevClub'} duration='2026' photo={certHt}/>	
+							<CardCertificado title='CSS Intermediário' school={'DevClub'} duration='2026' photo={cssInter}/>	
+							<CardCertificado title='CSS - Display GRID' school={'DevClub'} duration='2026' photo={dgrid}/>	
+							<CardCertificado title='JavaScript pt. V - A Nova Ordem de Dados' school={'DevClub'} duration='2026' photo={jsV}/>	
+							<CardCertificado title='JavaScript pt. VI - A Ascensão do Async_Await' school={'DevClub'} duration='2026' photo={jsVI}/>	
+							<CardCertificado title='Node' school={'DevClub'} duration='2026' photo={jsNode}/>	
+							<CardCertificado title='React pt.3- Bônus - DevClub Full Stack' school={'DevClub'} duration='2026' photo={reactBonus}/>	
+							<CardCertificado title='TypeScript' school={'DevClub'} duration='2026' photo={bills}/>	
+						</>
+					):""}
+
+				</div>
+					{(size.widthSize<=659)?(
+						<div>
+							<Button personalize='
+								text-bg-indigo-variant			
+							' variant='outline' title={`${showCertifcates? 'Ver menos':'Ver mais'}`}
+							onclick={()=>{handleShowCertifcates()}}
+							/>
+						</div>	
+					):""}
+			</section>
+
+
 		</>
 	);
 }
