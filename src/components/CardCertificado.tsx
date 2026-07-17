@@ -14,10 +14,11 @@ export function CardCertificado({ title,school,link, photo,duration, custom }: C
         hover:-translate-y-2
 
         flex flex-col items-center 
-        w-75
+        w-65
         sm:w-49
         md:w-50
-        bg-white
+        bg-bg-card
+        border border-text-secundary
         gap-1 
         shadow rounded-xl p-0 
         ">
@@ -29,7 +30,7 @@ export function CardCertificado({ title,school,link, photo,duration, custom }: C
                     "/>
                 </a>
             </div>
-            <div className="flex flex-col justify-center items-center p-2 text-center w-full h-full ">
+            <div className="flex text-white flex-col justify-center items-center p-2 text-center w-full h-full ">
 
                 <h2 className="font-bold">{title}</h2>
                 <p>{school}</p>

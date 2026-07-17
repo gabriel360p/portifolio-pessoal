@@ -9,10 +9,10 @@ export function CardTecnolgies({ title,link, figure_path, custom }: CardTecnolgi
     return (
         <div className="
         hover:-translate-y-2
-
         flex flex-col items-center 
         min-w-[111px]
-        bg-white
+        bg-bg-card
+        border border-text-secundary
         gap-2 p-4 
         shadow rounded-xl text-center 
         ">
@@ -25,7 +25,7 @@ export function CardTecnolgies({ title,link, figure_path, custom }: CardTecnolgi
                     "/>
                 </a>
             </div>
-            <h2 className="font-bold">{title}</h2>
+            <h2 className="font-bold text-white">{title}</h2>
         </div>
     )
 }

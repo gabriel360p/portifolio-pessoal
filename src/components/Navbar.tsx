@@ -52,14 +52,15 @@ export function NavBar() {
                             <a href='#sobre' className={`
                         desktop-menu-items ${scrollPosition >= 400 && scrollPosition <= 800 ? 'text-text-primary' : ''}`}>Sobre</a>
 
-                            <a href='#sobre' className={`
-                        desktop-menu-items ${scrollPosition >= 800 && scrollPosition <= 1055 ? 'text-text-primary' : ''}`}>Tecnologias</a>
+                            <a href='#servicos' className={`
+                        desktop-menu-items ${scrollPosition >= 800 && scrollPosition <= 1055 ? 'text-text-primary' : ''}`}>Serviços</a>
 
-                            <a href='#sobre' className={`
+                            <a href='#formacoes' className={`
                         desktop-menu-items ${scrollPosition >= 1056 && scrollPosition <= 1200 ? 'text-text-primary' : ''}`}>Formações</a>
 
-                            <a href='#projetos' className="desktop-menu-items">Projetos</a>
-                            <a href='#contato' className="desktop-menu-items">Contato</a>
+                            <a href='#formacoes' className={`
+                        desktop-menu-items ${scrollPosition >= 1056 && scrollPosition <= 1200 ? 'text-text-primary' : ''}`}>Tecnologias</a>
+
                         </div>
                     </div>
                     <div className='
@@ -97,11 +98,12 @@ export function NavBar() {
                     w-screen 
                     p-5
                     text-white'>
-                            <a className='mobile-menu-items' href="#">Inicio</a>
-                            <a className='mobile-menu-items' href="#">Sobre</a>
-                            <a className='mobile-menu-items' href="#">Formações</a>
+                            <a className='mobile-menu-items' href="#inicio">Inicio</a>
+                            <a className='mobile-menu-items' href="#sobre">Sobre</a>
+                            <a className='mobile-menu-items' href="#serviços">Serviços</a>
+                            <a className='mobile-menu-items' href="#formacoes">Formações</a>
                             <a className='mobile-menu-items' href="#">Projeto</a>
-                            <a className='mobile-menu-items' href="#">Tecnologias</a>
+                            <a className='mobile-menu-items' href="#tecnologias">Tecnologias</a>
                             <a className='mobile-menu-items' href="#">Contato</a>
                         </div>
                     </div>

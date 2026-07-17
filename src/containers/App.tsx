@@ -3,9 +3,13 @@ import {
 	ClockIcon,
 	EnvelopeSimpleIcon,
 	GithubLogoIcon,
+	GlobeIcon,
 	GpsIcon,
 	InstagramLogoIcon,
 	LinkedinLogoIcon,
+	MonitorIcon,
+	RocketLaunchIcon,
+	ShoppingCartIcon,
 	StudentIcon,
 } from '@phosphor-icons/react';
 import profile from '../assets/foto-profissional.png';
@@ -19,6 +23,7 @@ import { bills, certHt, cssInter, dgrid, fullStack, ifrn, jsNode, jsV, jsVI, pEn
 import { SizeHook } from '../hooks/SizeHook';
 import { div } from 'motion/react-client';
 import { useState } from 'react';
+import { HelpCard } from '../components/HelpCard';
 
 function App() {
 	const size = SizeHook();
@@ -33,7 +38,7 @@ function App() {
 			<NavBar />
 
 			{/* HERO */}
-			<div className="bg-bg-hero w-screen h-auto relative top-19">
+			<div id='inicio' className="bg-bg-hero w-screen h-auto relative top-19">
 				<div
 					className="w-full h-full flex
 					items-center
@@ -121,12 +126,13 @@ function App() {
 			</div>
 			{/* FIM DO HERO */}
 
+
+
 			{/* SOBRE MIM */}
-			<section
+			<section id='sobre'
 				className="
-					py-8
 					w-[90%]
-					grid mt-28 px-7
+					grid mt-28 px-7 py-8
 					grid-cols-1
 					bg-bg-panel
 					border border-text-secundary rounded-md
@@ -181,15 +187,15 @@ function App() {
 				<div
 					className="mt-8
           grid grid-cols-1 
-          gap-2
+          gap-4
           md:grid-cols-2 md:justify-center md:items-center 
           
           
         "
 				>
-					<div className="flex flex-col gap-2
+					<div className="flex flex-col gap-4
           
-          md:items-end
+         			 md:items-end
           ">
 						<CardAbout
 							title="Formação"
@@ -203,7 +209,7 @@ function App() {
 							icon={<BriefcaseIcon size={28} className="text-text-primary" />}
 						/>
 					</div>
-					<div className="flex flex-col gap-2">
+					<div className="flex flex-col gap-4">
 						<CardAbout
 							title="Localização"
 							description="Caicó, RN - Brasil"
@@ -218,21 +224,65 @@ function App() {
 				</div>
 			</section>
 			{/* FIM DO SOBRE MIM */}
+			
+
+
+			{/* SERVIÇOS */}
+			<section
+			id='servicos'
+			className='
+			flex flex-col mt-9
+			w-[90%]
+			bg-bg-panel
+			border border-text-secundary rounded-md
+			gap-4
+			py-7
+			px-7
+			'
+			>
+				<div className='text-center'>
+					<p className='font-extrabold text-text-primary'>COMO POSSO AJUDAR</p>
+					<h1 className='font-extrabold text-white'>Soluções para impulsionar <span className='text-text-primary'>seu negócio</span> online</h1>
+				</div>
+
+				<div className='
+					flex flex-row flex-wrap items-center justify-center
+					gap-x-6
+					gap-y-4
+				'>
+					<HelpCard title='Landing Pages' description='
+					Páginas de alta conversão para divulgar produtos e serviços.' icon={<MonitorIcon size={35} className='text-text-primary'/>}/>
+					<HelpCard title='Sites Institucionais' description='
+					Sites profissionais que transmitem credibilidade e fortalecem sua marca.' icon={<GlobeIcon size={35} className='text-text-primary'/>}/>
+					<HelpCard title='Lojas e Catálogos' description=' 
+					Apresente seus produtos de forma organizada e aumente suas vendas.' icon={<ShoppingCartIcon size={35} className='text-text-primary'/>}
+					/>
+					<HelpCard title='Manutenção' description='
+					Atualizações, melhorias e suporte para manter tudo funcionando.' icon={<RocketLaunchIcon size={35} className='text-text-primary'/>}/>
+				</div>
+
+			</section>
+			{/* FIM SERVIÇOS */}
+
+
+
 
 			{/* TECNOLIGIAS QUE UTILIZO */}
 			<section
+			id='tecnologias'
 				className='
-				bg-bg-tecnologies-section
-				w-full
-				p-5
-				mt-9
-				flex flex-col
-				gap-5
+					bg-bg-panel
+					border border-text-secundary rounded-md
+					w-[90%]
+					p-5
+					mt-9
+					flex flex-col
+					gap-5
 				'
 			>
 				<div className='text-center'>
-					<p className='font-extrabold text-bg-indigo'>TECNOLOGIAS</p>
-					<h1 className='font-extrabold'>Minhas principais ferramentas</h1>
+					<p className='font-extrabold text-text-primary'>TECNOLOGIAS</p>
+					<h1 className='font-extrabold text-white'>Minhas principais ferramentas</h1>
 				</div>
 
 				<div className='
@@ -253,22 +303,30 @@ function App() {
 			</section>
 			{/* FIM TECNOLIGIAS QUE UTILIZO */}
 
+
+
+
 			{/* MINHAS CERTIFICAÇÕES */}
 			<section
+				id='formacoes'
 				className='
-				flex flex-col w-full
+				flex flex-col
+				mt-9
+				bg-bg-panel
+				border border-text-secundary rounded-md
+				w-[90%]
 				p-5 gap-4
 				justify-center
 				items-center
 				'
 			>
 				<div className='text-center'>
-					<p className='font-extrabold text-bg-indigo'>FORMAÇÕES</p>
-					<h1 className='font-extrabold'>Certificados</h1>
+					<p className='font-extrabold text-text-primary'>FORMAÇÕES</p>
+					<h1 className='font-extrabold text-white'>Certificados</h1>
 				</div>
 
 				<div className='
-					flex flex-wrap gap-y-5
+					flex flex-wrap gap-y-4
 					gap-x-4
 					lg:gap-x-6
 					xl:gap-x-8
@@ -278,8 +336,9 @@ function App() {
 					<CardCertificado title='Prog. com I.A' school={'DevClub'} duration='2026' photo={zero} />
 					<CardCertificado title='Prog. FullStack' school={'DevClub'} duration='2026' photo={fullStack} />
 					<CardCertificado title='Formação em Engenharia de Prompt' school={'DevClub'} duration='2026' photo={pEngi} />
+					<CardCertificado title='TypeScript' school={'DevClub'} duration='2026' photo={bills} />
 
-					{(size.widthSize >= 659 || showCertifcates) ? (
+					{showCertifcates ? (
 						<>
 							<CardCertificado title='HTML - Front End Club' school={'DevClub'} duration='2026' photo={certHt} />
 							<CardCertificado title='CSS Intermediário' school={'DevClub'} duration='2026' photo={cssInter} />
@@ -288,12 +347,10 @@ function App() {
 							<CardCertificado title='JavaScript pt. VI - A Ascensão do Async_Await' school={'DevClub'} duration='2026' photo={jsVI} />
 							<CardCertificado title='Node' school={'DevClub'} duration='2026' photo={jsNode} />
 							<CardCertificado title='React pt.3- Bônus - DevClub Full Stack' school={'DevClub'} duration='2026' photo={reactBonus} />
-							<CardCertificado title='TypeScript' school={'DevClub'} duration='2026' photo={bills} />
 						</>
 					) : ""}
 
 				</div>
-				{(size.widthSize <= 659) ? (
 					<div>
 						<Button personalize='
 								text-bg-indigo-variant			
@@ -301,9 +358,34 @@ function App() {
 							onclick={() => { handleShowCertifcates() }}
 						/>
 					</div>
-				) : ""}
 			</section>
+			{/* FIM DE MINHAS CERTIFICAÇÕES */}
 
+
+
+
+			{/* MEUS PROJETOS */}
+			<section>
+			</section>
+			{/* FIM DE MEUS PROJETOS */}
+
+
+
+
+
+			{/* MINHA FORMA DE TRABALHAR */}
+			<section>
+			</section>
+			{/* FIM DE FORMA DE TRABALHAR */}
+
+
+
+
+
+			{/* VAMOS TRABALHAR JUNTOS */}
+			<section>
+			</section>
+			{/* FIM VAMOS TRABALHAR JUNTOS */}
 
 		</div>
 	);
