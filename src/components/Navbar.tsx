@@ -1,84 +1,113 @@
 
-import { ListIcon } from '@phosphor-icons/react'
+import { ListIcon, XIcon } from '@phosphor-icons/react'
 import { useState } from 'react'
 import logo from '../assets/dev-frontend-logo1.png'
 import { ScrollHook } from '../hooks/ScrollHook'
 export function NavBar() {
     const [navMenu, setNavMenu] = useState<boolean>(false)
+    const [navMenuFirst, setNavMenuFirst] = useState<boolean>(false)
     const scrollPosition = ScrollHook();
 
     function handleMenuState(): void {
+        /*
+            Um pouco chato, mas legal de se fazer ksksksks
+        */
+
+        setNavMenuFirst(true)
         setNavMenu(!navMenu)
-        // console.log(navMenu)
     }
-    // console.log(scrollPosition)
 
     return (
-        <header className={`
+        <>
+            <header className={`
         fixed
         z-100
-        w-screen bg-bg-hero 
-        min-h-20
-        py-3
+        w-screen bg-bg-default
+        min-h-15
+        py-2
         px-5
         lg:px-15
         `}>
-            <nav className="flex items-center justify-between w-full h-full">
-                <img
-                alt='logo'
-                src={logo} className='object-cover 
-                h-15
-                w-auto' 
-                />
+                <nav className="flex items-center justify-between w-full h-full">
+                    <img
+                        alt='logo'
+                        className='
+                        object-cover 
+                        h-15
+                        w-auto'
+                    />
 
-                <div className='hidden 
+                    <div className='hidden 
                 md:flex
                 '>
-                    <div className='
+                        <div className='
                     flex gap-9
-                    text-xl
+                    text-md
                     font-semibold
                     text-white'>
 
-                        <a href='#inicio' className={`
-                        desktop-menu-items ${scrollPosition<=400?'text-bg-indigo':''}`}>Inicio</a>
+                            <a href='#inicio' className={`
+                        desktop-menu-items ${scrollPosition <= 400 ? 'text-text-primary' : ''}`}>Inicio</a>
 
-                        <a href='#sobre' className={`
-                        desktop-menu-items ${scrollPosition>=400&&scrollPosition<=800?'text-bg-indigo':''}`}>Sobre</a>
+                            <a href='#sobre' className={`
+                        desktop-menu-items ${scrollPosition >= 400 && scrollPosition <= 800 ? 'text-text-primary' : ''}`}>Sobre</a>
 
-                        <a href='#sobre' className={`
-                        desktop-menu-items ${scrollPosition>=800&&scrollPosition<=1055?'text-bg-indigo':''}`}>Tecnologias</a>
+                            <a href='#sobre' className={`
+                        desktop-menu-items ${scrollPosition >= 800 && scrollPosition <= 1055 ? 'text-text-primary' : ''}`}>Tecnologias</a>
 
-                        <a href='#sobre' className={`
-                        desktop-menu-items ${scrollPosition>=1056&&scrollPosition<=1200?'text-bg-indigo':''}`}>Formações</a>
+                            <a href='#sobre' className={`
+                        desktop-menu-items ${scrollPosition >= 1056 && scrollPosition <= 1200 ? 'text-text-primary' : ''}`}>Formações</a>
 
-                        <a href='#projetos' className="desktop-menu-items">Projetos</a>
-                        <a href='#contato' className="desktop-menu-items">Contato</a>
+                            <a href='#projetos' className="desktop-menu-items">Projetos</a>
+                            <a href='#contato' className="desktop-menu-items">Contato</a>
+                        </div>
                     </div>
-                </div>
-                <div className='
+                    <div className='
                 md:hidden
                 '>
-                    <ListIcon className='text-white cursor-pointer' size={30} onClick={() => { handleMenuState() }} />
-                </div>
-            </nav>
-            {navMenu && (
-                <div className='w-full md:hidden '>
-                    <div className='
-                    py-4
-                    flex gap-5
-                    flex-col
-                    text-white'>
-                        <a className='mobile-menu-items' href="">Inicio</a>
-                        <a className='mobile-menu-items' href="">Sobre</a>
-                        <a className='mobile-menu-items' href="">Formações</a>
-                        <a className='mobile-menu-items' href="">Projeto</a>
-                        <a className='mobile-menu-items' href="">Tecnologias</a>
-                        <a className='mobile-menu-items' href="">Contato</a>
-                    </div>
-                </div>
-            )}
+                        {navMenu ? (
+                            <XIcon className='
+                        text-white
+                        active:text-text-primary
+                        hover:text-text-primary
+                        cursor-pointer' size={30} onClick={() => { handleMenuState() }} />
+                        ) : (
+                            <ListIcon className='
+                        text-white
+                        active:text-text-primary
+                        hover:text-text-primary
+                        cursor-pointer' size={30} onClick={() => { handleMenuState() }} />
+                        )}
 
-        </header>
+                    </div>
+                </nav>
+
+            </header>
+            ${
+                navMenuFirst && (
+                    <div className={`
+                ${navMenu ? 'flex animate-surge' :
+                            'animate-disappear pointer-events-none'
+                        }
+                z-90 bg-bg-default h-fit fixed inset-0 top-16 md:hidden
+                border-b-text-primary border
+                 `}>
+                        <div className='
+                    flex gap-5 flex-col
+                    w-screen 
+                    p-5
+                    text-white'>
+                            <a className='mobile-menu-items' href="#">Inicio</a>
+                            <a className='mobile-menu-items' href="#">Sobre</a>
+                            <a className='mobile-menu-items' href="#">Formações</a>
+                            <a className='mobile-menu-items' href="#">Projeto</a>
+                            <a className='mobile-menu-items' href="#">Tecnologias</a>
+                            <a className='mobile-menu-items' href="#">Contato</a>
+                        </div>
+                    </div>
+                )
+            }
+        </>
+
     )
 }

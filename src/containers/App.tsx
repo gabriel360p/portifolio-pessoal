@@ -22,29 +22,29 @@ import { useState } from 'react';
 
 function App() {
 	const size = SizeHook();
-	const [showCertifcates, setShowCertifcates]=useState<boolean>(false)
+	const [showCertifcates, setShowCertifcates] = useState<boolean>(false)
 
-	function handleShowCertifcates(){
+	function handleShowCertifcates() {
 		setShowCertifcates(!showCertifcates)
 	}
 
 	return (
-		<>
+		<div className='flex flex-col items-center'>
 			<NavBar />
 
 			{/* HERO */}
-			<div className="bg-bg-hero w-screen h-auto relative top-21">
+			<div className="bg-bg-hero w-screen h-auto relative top-19">
 				<div
 					className="w-full h-full flex
-          items-center
-          justify-center
-          gap-3
-          flex-col-reverse
-          md:flex-row
-          md:justify-around
-          pt-5
-          lg:pb-10
-        "
+					items-center
+					justify-center
+					gap-3
+					flex-col-reverse
+					md:flex-row
+					md:justify-around
+					pt-5
+					lg:pb-10
+					"
 				>
 					<div className="flex flex-col text-white gap-4 pb-4">
 						<div
@@ -55,23 +55,23 @@ function App() {
               lg:text-start
             "
 						>
-							<p className="text-bg-indigo lg:text-3xl">Olá, eu sou</p>
+							<p className="text-text-primary lg:text-3xl">Olá, eu sou</p>
 							<p className="text-4xl lg:text-7xl font-bold">
-								Gabriel <span className="text-bg-indigo">Costa</span>
+								Gabriel <span className="text-text-primary">Costa</span>
 							</p>
 							<p className="font-bold lg:text-2xl">Desenvolvedor Front-end</p>
 							<p className="text-[15px] lg:text-xl">
-								Desenvolvo interfaces modernas, responsivas e <br />{' '}
-								experiências digitais que fazem a diferença
+								Desenvolvo <span className='text-text-primary'> interfaces modernas, responsivas e <br />{' '}
+									experiências digitais</span> que fazem a diferença
 							</p>
 						</div>
 
 						<div className="flex gap-3 justify-center lg:justify-start">
 							<a href="#projetos">
-								<Button title="Ver Projetos" variant="normal" />
+								<Button title="</> Ver Projetos" variant="normal" />
 							</a>
 							<a href="#contatos">
-								<Button title="Entrar em contato" variant="outline" />
+								<Button title="Solicitar orçamento" variant="outline" />
 							</a>
 						</div>
 
@@ -124,14 +124,17 @@ function App() {
 			{/* SOBRE MIM */}
 			<section
 				className="
-        min-w-full
-        grid mt-28 px-7
-        grid-cols-1
-        md:grid-cols-2
-        md:justify-center md:items-center
-        md:gap-8
-          
-      "
+					py-8
+					w-[90%]
+					grid mt-28 px-7
+					grid-cols-1
+					bg-bg-panel
+					border border-text-secundary rounded-md
+					md:grid-cols-2
+					md:justify-center md:items-center
+					md:gap-8
+					
+				"
 			>
 				<div
 					className="flex 
@@ -142,7 +145,7 @@ function App() {
 				>
 					<p
 						className="
-          text-bg-indigo font-bold
+          text-text-primary font-bold
           lg:text-xl
           "
 					>
@@ -151,13 +154,14 @@ function App() {
 					<p
 						className="font-extrabold
           lg:text-2xl
+		  text-white
           "
 					>
 						Quem sou eu?
 					</p>
 					<p
 						className=" text-justify
-          text-gray-700
+          text-white
           lg:text-lg
           lg:leading-8
           "
@@ -190,25 +194,25 @@ function App() {
 						<CardAbout
 							title="Formação"
 							description="Tec. em Informática p/ Web - IFRN"
-							icon={<StudentIcon size={28} className="text-bg-indigo" />}
+							icon={<StudentIcon size={28} className="text-text-primary" />}
 						/>
 						<CardAbout
 							title="Experiência"
 							custom='w-full'
 							description="Projetos acadêmicos"
-							icon={<BriefcaseIcon size={28} className="text-bg-indigo" />}
+							icon={<BriefcaseIcon size={28} className="text-text-primary" />}
 						/>
 					</div>
 					<div className="flex flex-col gap-2">
 						<CardAbout
 							title="Localização"
 							description="Caicó, RN - Brasil"
-							icon={<GpsIcon size={28} className="text-bg-indigo" />}
+							icon={<GpsIcon size={28} className="text-text-primary" />}
 						/>
 						<CardAbout
 							title="Disponibilidade"
 							description="Para novas oportunidades"
-							icon={<ClockIcon size={28} className="text-bg-indigo" />}
+							icon={<ClockIcon size={28} className="text-text-primary" />}
 						/>
 					</div>
 				</div>
@@ -235,14 +239,14 @@ function App() {
 				flex flex-wrap gap-x-5 gap-y-3
 				justify-center items-center
 				'>
-					<CardTecnolgies title='HTML'figure_path={htmlLogo} link='https://developer.mozilla.org/pt-BR/docs/Web/HTML'/>
-					<CardTecnolgies title='CSS' figure_path={csslogo} link='https://developer.mozilla.org/pt-BR/docs/Web/CSS'/>
-					<CardTecnolgies title='JavaScript' figure_path={jsLogo} link='https://developer.mozilla.org/pt-BR/docs/Web/JavaScript'/>
-					<CardTecnolgies title='TypeScript' figure_path={tsLogo} link='https://www.typescriptlang.org/'/>
-					<CardTecnolgies title='React' figure_path={ReactLogo} link='https://react.dev/'/>
-					<CardTecnolgies title='Git' figure_path={gitLogo} link='https://git-scm.com/'/>
-					<CardTecnolgies title='GitHub' figure_path={githubLogo} link='https://github.com/gabriel360p'/>
-					<CardTecnolgies title='Tailwind' figure_path={tailwindLogo} link='https://tailwindcss.com/'/>
+					<CardTecnolgies title='HTML' figure_path={htmlLogo} link='https://developer.mozilla.org/pt-BR/docs/Web/HTML' />
+					<CardTecnolgies title='CSS' figure_path={csslogo} link='https://developer.mozilla.org/pt-BR/docs/Web/CSS' />
+					<CardTecnolgies title='JavaScript' figure_path={jsLogo} link='https://developer.mozilla.org/pt-BR/docs/Web/JavaScript' />
+					<CardTecnolgies title='TypeScript' figure_path={tsLogo} link='https://www.typescriptlang.org/' />
+					<CardTecnolgies title='React' figure_path={ReactLogo} link='https://react.dev/' />
+					<CardTecnolgies title='Git' figure_path={gitLogo} link='https://git-scm.com/' />
+					<CardTecnolgies title='GitHub' figure_path={githubLogo} link='https://github.com/gabriel360p' />
+					<CardTecnolgies title='Tailwind' figure_path={tailwindLogo} link='https://tailwindcss.com/' />
 
 				</div>
 
@@ -270,38 +274,38 @@ function App() {
 					xl:gap-x-8
 					justify-center items-center
 					'>
-					<CardCertificado title='Téc. Informática' school={'IFRN - Caicó'} duration='2020 - 2024' photo={ifrn}/>	
-					<CardCertificado title='Prog. com I.A' school={'DevClub'} duration='2026' photo={zero}/>	
-					<CardCertificado title='Prog. FullStack' school={'DevClub'} duration='2026' photo={fullStack}/>	
-					<CardCertificado title='Formação em Engenharia de Prompt' school={'DevClub'} duration='2026' photo={pEngi}/>	
+					<CardCertificado title='Téc. Informática' school={'IFRN - Caicó'} duration='2020 - 2024' photo={ifrn} />
+					<CardCertificado title='Prog. com I.A' school={'DevClub'} duration='2026' photo={zero} />
+					<CardCertificado title='Prog. FullStack' school={'DevClub'} duration='2026' photo={fullStack} />
+					<CardCertificado title='Formação em Engenharia de Prompt' school={'DevClub'} duration='2026' photo={pEngi} />
 
-					{(size.widthSize>=659||showCertifcates)?(
+					{(size.widthSize >= 659 || showCertifcates) ? (
 						<>
-							<CardCertificado title='HTML - Front End Club' school={'DevClub'} duration='2026' photo={certHt}/>	
-							<CardCertificado title='CSS Intermediário' school={'DevClub'} duration='2026' photo={cssInter}/>	
-							<CardCertificado title='CSS - Display GRID' school={'DevClub'} duration='2026' photo={dgrid}/>	
-							<CardCertificado title='JavaScript pt. V - A Nova Ordem de Dados' school={'DevClub'} duration='2026' photo={jsV}/>	
-							<CardCertificado title='JavaScript pt. VI - A Ascensão do Async_Await' school={'DevClub'} duration='2026' photo={jsVI}/>	
-							<CardCertificado title='Node' school={'DevClub'} duration='2026' photo={jsNode}/>	
-							<CardCertificado title='React pt.3- Bônus - DevClub Full Stack' school={'DevClub'} duration='2026' photo={reactBonus}/>	
-							<CardCertificado title='TypeScript' school={'DevClub'} duration='2026' photo={bills}/>	
+							<CardCertificado title='HTML - Front End Club' school={'DevClub'} duration='2026' photo={certHt} />
+							<CardCertificado title='CSS Intermediário' school={'DevClub'} duration='2026' photo={cssInter} />
+							<CardCertificado title='CSS - Display GRID' school={'DevClub'} duration='2026' photo={dgrid} />
+							<CardCertificado title='JavaScript pt. V - A Nova Ordem de Dados' school={'DevClub'} duration='2026' photo={jsV} />
+							<CardCertificado title='JavaScript pt. VI - A Ascensão do Async_Await' school={'DevClub'} duration='2026' photo={jsVI} />
+							<CardCertificado title='Node' school={'DevClub'} duration='2026' photo={jsNode} />
+							<CardCertificado title='React pt.3- Bônus - DevClub Full Stack' school={'DevClub'} duration='2026' photo={reactBonus} />
+							<CardCertificado title='TypeScript' school={'DevClub'} duration='2026' photo={bills} />
 						</>
-					):""}
+					) : ""}
 
 				</div>
-					{(size.widthSize<=659)?(
-						<div>
-							<Button personalize='
+				{(size.widthSize <= 659) ? (
+					<div>
+						<Button personalize='
 								text-bg-indigo-variant			
-							' variant='outline' title={`${showCertifcates? 'Ver menos':'Ver mais'}`}
-							onclick={()=>{handleShowCertifcates()}}
-							/>
-						</div>	
-					):""}
+							' variant='outline' title={`${showCertifcates ? 'Ver menos' : 'Ver mais'}`}
+							onclick={() => { handleShowCertifcates() }}
+						/>
+					</div>
+				) : ""}
 			</section>
 
 
-		</>
+		</div>
 	);
 }
 

@@ -1,10 +1,47 @@
 @import "tailwindcss";
 
 @theme{
-    --color-bg-hero:#040911;
+      --animate-surge: surge 1s ease-in-out;
+    @keyframes surge {
+        0%{
+            opacity:0%;
+            transform: translateY(-250px);
+        },
+        100% {
+            transform: translateY(100px);
+            opacity:100%;
+        }
+    }
+      --animate-disappear: disappear 1s ease-in-out forwards;
+   @keyframes disappear {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-250px);
+    }
+}
+    --color-bg-default:#000405;
+    --color-bg-panel:#040a0b;
+    --color-bg-card:#030c0b;
+    --color-text-primary:#12cd5b;
+    --color-text-secundary:#0e1c16;
+    
+    /* --color-text-primary:#572f96; */
     --color-bg-indigo:#3761da;
     --color-bg-indigo-variant:#345fe9;
     --color-bg-tecnologies-section:#f8f8fa
+
+    
+
+
+}
+
+body{
+    @apply bg-bg-default
 }
 
 *{
@@ -23,46 +60,47 @@ a{
 
 .desktop-menu-items{
     @apply
-    hover:text-bg-indigo
-    active:text-bg-indigo
+    hover:text-text-primary
+    active:text-text-primary
     cursor-pointer
 }
 
 .mobile-menu-items{
     @apply
     transition-all 
-    active:translate-x-4 
-    hover:translate-x-4;
+    active:translate-x-4 hover:text-text-primary
+    hover:translate-x-4 active:text-text-primary
 }
 
 .button-normal{
     @apply 
+    font-semibold
     border-none 
     rounded-md 
-    bg-bg-indigo 
+    bg-text-primary
     py-[0.5rem] px-3 
-    hover:bg-indigo-400
-    active:bg-indigo-400;
+    text-bg-default
+    hover:bg-text-primary/50    hover:text-white
+    active:bg-text-primary/50   active:text-white
 }
 .button-outline{
     @apply 
     py-2 px-3
+    font-semibold
     border
-    border-bg-indigo 
+    border-text-primary
     rounded-md 
-    hover:bg-indigo-400
-    active:bg-indigo-400
-    hover:border-indigo-400
-    active:border-indigo-400
-
+    text-white
+    hover:bg-text-primary/50 hover:border-text-primary/50 hover:text-bg-default
+    active:bg-text-primary/50 active:border-text-primary/50 active:text-bg-default
     ;
 }
 
 .hero-icons-contact{
     @apply
-    hover:text-bg-indigo
+    hover:text-text-primary
     hover:scale-125
-    active:text-bg-indigo
+    active:text-text-primary
     active:scale-125
     cursor-pointer
 }
