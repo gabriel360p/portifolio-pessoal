@@ -1,6 +1,7 @@
 import {
 	ArrowRightIcon,
 	BriefcaseIcon,
+	CheckCircleIcon,
 	ClockIcon,
 	EnvelopeSimpleIcon,
 	GithubLogoIcon,
@@ -50,6 +51,7 @@ import {
 import { CardProject } from '../components/CardProject';
 import { projects } from '../services/ProjectsServices';
 import { CardWork } from '../components/CardWork';
+import { Footer } from '../components/Footer';
 
 function App() {
 	const size = SizeHook();
@@ -529,8 +531,47 @@ function App() {
 			{/* FIM DE FORMA DE TRABALHAR */}
 
 			{/* VAMOS TRABALHAR JUNTOS */}
-			<section></section>
+			<section
+			className="
+				    gap-5
+				    mt-9
+				    mb-9	
+				    w-[90%]
+				"
+			>
+				<div className='flex flex-row flex-wrap justify-center w-full gap-5 lg:gap-15 py-5 items-center rounded border bg-bg-panel border-text-primary'>
+
+					<div className='flex flex-col gap-2 justify-center items-center px-3 lg:px-5'>
+						<p className='text-text-primary text-center'>VAMOS TRABALHAR JUNTOS?</p>
+						<h2 className='text-2xl font-bold text-center'>Tem um <span className='text-text-primary'>projeto</span> em mente?</h2>
+						<p className='text-center'>Vamos tirar do papel e vamos transformar em realidade!</p>
+					</div>
+
+					<div className='flex flex-col justify-center items-start gap-2'>
+						<div className='flex flex-row gap-2 justify-center items-center'>
+							<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25}/>
+							<p> Resposta rápida</p>
+						</div>
+						<div className='flex flex-row gap-2 justify-center items-center'>
+							<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25}/>
+							<p> Orçamento sem compromisso</p>
+						</div>
+						<div className='flex flex-row gap-2 justify-center items-center'>
+							<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25}/>
+							<p> Soluções personalizadas</p>
+						</div>
+					</div>
+
+					<div className='flex flex-col justify-center items-center gap-2'>
+						<a href="/" className='button-normal'>Falar no Whatsapp</a>
+						<a href="/" className='button-outline'>Solicitar orçamento</a>
+					</div>
+
+				</div>
+			</section>
 			{/* FIM VAMOS TRABALHAR JUNTOS */}
+
+			<Footer/>
 		</div>
 	);
 }
