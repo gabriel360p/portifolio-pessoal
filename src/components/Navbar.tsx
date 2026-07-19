@@ -1,6 +1,6 @@
 import { ListIcon, XIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
-import logo from '../assets/dev-frontend-logo1.png';
+import logo from '../assets/logo/logo-cut-removebg.png';
 import { ScrollHook } from '../hooks/ScrollHook';
 export function NavBar() {
 	const [navMenu, setNavMenu] = useState<boolean>(false);
@@ -32,9 +32,10 @@ export function NavBar() {
 				<nav className="flex items-center justify-between w-full h-full">
 					<img
 						alt="logo"
+						src={logo}
 						className="
                         object-cover 
-                        h-15
+                        h-10
                         w-auto"
 					/>
 
@@ -45,7 +46,7 @@ export function NavBar() {
 					>
 						<div
 							className="
-                    flex gap-9
+                    flex gap-7
                     text-md
                     font-semibold
                     text-white"
@@ -67,11 +68,11 @@ export function NavBar() {
 							</a>
 
 							<a
-								href="#servicos"
+								href="#tecnologias"
 								className={`
                         desktop-menu-items ${scrollPosition >= 800 && scrollPosition <= 1055 ? 'text-text-primary' : ''}`}
 							>
-								Serviços
+								Tecnologias
 							</a>
 
 							<a
@@ -83,11 +84,19 @@ export function NavBar() {
 							</a>
 
 							<a
-								href="#formacoes"
+								href="#projetos"
 								className={`
                         desktop-menu-items ${scrollPosition >= 1056 && scrollPosition <= 1200 ? 'text-text-primary' : ''}`}
 							>
-								Tecnologias
+								Projetos
+							</a>
+
+							<a
+								href="#contato"
+								className={`
+                        desktop-menu-items ${scrollPosition >= 1056 && scrollPosition <= 1200 ? 'text-text-primary' : ''}`}
+							>
+								Contato
 							</a>
 						</div>
 					</div>
@@ -153,16 +162,16 @@ export function NavBar() {
 						<a className="mobile-menu-items" href="#serviços">
 							Serviços
 						</a>
-						<a className="mobile-menu-items" href="#formacoes">
-							Formações
-						</a>
-						<a className="mobile-menu-items" href="#">
-							Projeto
-						</a>
 						<a className="mobile-menu-items" href="#tecnologias">
 							Tecnologias
 						</a>
-						<a className="mobile-menu-items" href="#">
+						<a className="mobile-menu-items" href="#formacoes">
+							Formações
+						</a>
+						<a className="mobile-menu-items" href="#projetos">
+							Projetos
+						</a>
+						<a className="mobile-menu-items" href="#contato">
 							Contato
 						</a>
 					</div>
