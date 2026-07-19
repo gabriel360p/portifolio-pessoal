@@ -1,4 +1,5 @@
 import {
+	ArrowRightIcon,
 	BriefcaseIcon,
 	ClockIcon,
 	EnvelopeSimpleIcon,
@@ -48,6 +49,7 @@ import {
 } from '../utils/FerramentasIconsExport';
 import { CardProject } from '../components/CardProject';
 import { projects } from '../services/ProjectsServices';
+import { CardWork } from '../components/CardWork';
 
 function App() {
 	const size = SizeHook();
@@ -222,7 +224,7 @@ function App() {
 				    flex-col
 				    gap-4
 				    mt-9
-				    px-7
+				    px-2
 				    py-7
 				    w-[90%]
 				    bg-bg-panel
@@ -490,7 +492,40 @@ function App() {
 			{/* FIM DE MEUS PROJETOS */}
 
 			{/* MINHA FORMA DE TRABALHAR */}
-			<section></section>
+			<section
+				className="
+				    flex
+				    flex-col
+				    gap-5
+				    items-center
+				    justify-center
+				    mt-9
+				    py-5
+				    w-[90%]
+
+				    bg-bg-panel
+				    border
+				    border-text-secundary
+				    rounded
+				"
+			>
+				<div className="text-center">
+					<p className="font-extrabold text-text-primary">MEU PROCESSO DE TRABALHO</p>
+					<h1 className="font-extrabold text-white">
+						Simples, transparente e eficiente
+					</h1>
+				</div>
+
+				<div className='flex flex-row flex-wrap gap-x-4 gap-y-5 xl:gap-x-10 items-center justify-center'>
+					<CardWork description='Conversamos sobre sua necessidade e objetivos.' title='Entendimento' number={1}/>
+					<CardWork description='Estrutura, layout e tecnologias definidas.' title='Planejamento' number={2}/>
+					<CardWork description='Código limpo, testes e foco em perfomance.' title='Desenvolvimento' number={3}/>
+					<CardWork description='Entrega, ajustes e suporte vitalício.' title='Entrega e suporte' number={4}/>
+				</div>
+
+
+				{/* <a className='button-outline' href='/'>Quero começar um novo projeto <ArrowRightIcon/></a> */}
+			</section>
 			{/* FIM DE FORMA DE TRABALHAR */}
 
 			{/* VAMOS TRABALHAR JUNTOS */}
