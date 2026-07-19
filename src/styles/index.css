@@ -40,40 +40,40 @@
 
 }
 
-body{
-    @apply bg-bg-default
+body {
+	@apply bg-bg-default text-white
 }
 
-*{
-    @apply 
+* {
+	@apply 
     box-border 
     transition-all;
 }
 
-button{
-    @apply cursor-pointer ;
+button {
+	@apply cursor-pointer ;
 }
 
-a{
-    @apply decoration-0;
+a {
+	@apply decoration-0;
 }
 
-.desktop-menu-items{
-    @apply
+.desktop-menu-items {
+	@apply
     hover:text-text-primary
     active:text-text-primary
     cursor-pointer
 }
 
-.mobile-menu-items{
-    @apply
+.mobile-menu-items {
+	@apply
     transition-all 
     active:translate-x-4 hover:text-text-primary
     hover:translate-x-4 active:text-text-primary
 }
 
-.button-normal{
-    @apply 
+.button-normal {
+	@apply 
     font-semibold
     border-none 
     rounded-md 
@@ -83,8 +83,8 @@ a{
     hover:bg-text-primary/50    hover:text-white
     active:bg-text-primary/50   active:text-white
 }
-.button-outline{
-    @apply 
+.button-outline {
+	@apply 
     py-2 px-3
     font-semibold
     border
@@ -96,8 +96,8 @@ a{
     ;
 }
 
-.hero-icons-contact{
-    @apply
+.hero-icons-contact {
+	@apply
     hover:text-text-primary
     hover:scale-125
     active:text-text-primary

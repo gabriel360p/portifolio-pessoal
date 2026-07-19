@@ -1,0 +1,1 @@
+export {default as topdog} from '../assets/projetos/topdog.png'
