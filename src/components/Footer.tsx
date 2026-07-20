@@ -1,10 +1,10 @@
 import { ArrowUpIcon, EnvelopeSimpleIcon, GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
 import logo from '../assets/logo/logo-cut-removebg.png'
-import { sendMessage } from '../utils/sendMessage'
+import { sendMessage } from '../utils/MandarMensagem'
 import { messageBase } from '../utils/Messages'
 
-export function Footer(){
-    return(
+export function Footer() {
+    return (
         <footer className='
         flex flex-row flex-wrap 
         px-5 gap-4 w-full
@@ -49,7 +49,7 @@ export function Footer(){
                 </a>
                 <button
                     type='button'
-                    onClick={()=>{sendMessage(messageBase)}}
+                    onClick={() => { sendMessage(messageBase) }}
                 >
                     <WhatsappLogoIcon size={28} className="hero-icons-contact" />
                 </button>

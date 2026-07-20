@@ -39,7 +39,7 @@ import {
 } from '../utils/CertificadosExport';
 import {
 	csslogo,
-	githubLogo,	
+	githubLogo,
 	gitLogo,
 	htmlLogo,
 	jsLogo,
@@ -55,8 +55,8 @@ import type { Project } from '../types/ProjectsType';
 import { FadeInSection } from '../components/FadeInSection';
 
 import { easterEggMessage, messageBase, solicitarOrcamento, verProjetos } from '../utils/Messages';
-import { sendMessage } from '../utils/sendMessage';
-import { randomMessage } from '../utils/easterEgg';
+import { sendMessage } from '../utils/MandarMensagem';
+import { randomMessage } from '../utils/EasterEgg';
 
 function App() {
 	const [showCertifcates, setShowCertifcates] = useState<boolean>(false);
@@ -64,31 +64,31 @@ function App() {
 	const [showProjects, setShowProjects] = useState<boolean>(false);
 	const [firstProject, setFirstProject] = useState<Project[]>();
 	const [restProject, setRestProject] = useState<Project[]>();
-	
+
 	function handleEasterEgg() {
 		setEasterEgg(!easterEgg)
-		setTimeout(()=>{
-			if(!easterEgg){
+		setTimeout(() => {
+			if (!easterEgg) {
 				alert(randomMessage())
 			}
-		},2000)
+		}, 2000)
 
-		setTimeout(()=>{
-			if(window.confirm('Pode por favor me ajudar? 😵‍💫')){
+		setTimeout(() => {
+			if (window.confirm('Pode por favor me ajudar? 😵‍💫')) {
 				setEasterEgg(false)
 				sendMessage(easterEggMessage)
-			}else{
+			} else {
 				alert("Oh mundo cruel 😞...")
 			}
-		},10000)
+		}, 10000)
 
-		setTimeout(()=>{
-			if(!easterEgg) alert("Não se preocupe, uma hora eu paro de girar, eu acho...😞")
-		},16000)
+		setTimeout(() => {
+			if (!easterEgg) alert("Não se preocupe, uma hora eu paro de girar, eu acho...😞")
+		}, 16000)
 
-		setTimeout(()=>{
+		setTimeout(() => {
 			setEasterEgg(false)
-		},20000)
+		}, 20000)
 	}
 	function handleShowProjects() {
 		setShowProjects(!showProjects);
@@ -96,21 +96,21 @@ function App() {
 	function handleShowCertifcates() {
 		setShowCertifcates(!showCertifcates);
 	}
-	useEffect(()=>{
-		setFirstProject(projects.slice(0,3))
+	useEffect(() => {
+		setFirstProject(projects.slice(0, 3))
 		setRestProject(projects.slice(4))
-	},[])
+	}, [])
 
 	return (
-	<div className="background-grid">
-		<div className="background-grid-overlay" />
+		<div className="background-grid">
+			<div className="background-grid-overlay" />
 			<main className=" flex flex-col items-center relative z-10">
-				<NavBar/>
+				<NavBar />
 
 				<FadeInSection>
 					{/* HERO */}
 					<section id="inicio"
-					className="relative section-anchor top-19 h-auto w-screen bg-bg-hero">
+						className="relative section-anchor top-19 h-auto w-screen bg-bg-hero">
 						<div
 							className="
 								flex
@@ -133,8 +133,8 @@ function App() {
 										Gabriel <span className="text-text-primary">Costa</span><span className='animate-ping text-7xl text-text-primary'>_</span>
 									</p>
 									<div className='flex gap-2 justify-start items-center'>
-										<GreaterThanIcon size={20}/>
-										<p className="font-bold lg:text-2xl"> 
+										<GreaterThanIcon size={20} />
+										<p className="font-bold lg:text-2xl">
 											Desenvolvedor Front-end
 										</p>
 									</div>
@@ -153,7 +153,7 @@ function App() {
 									<a href="#projetos" className='button-normal'>
 										Ver Projetos
 									</a>
-									<button type='button' className='button-outline' onClick={()=>{sendMessage(solicitarOrcamento)}}>Solicitar orçamento</button>
+									<button type='button' className='button-outline' onClick={() => { sendMessage(solicitarOrcamento) }}>Solicitar orçamento</button>
 								</div>
 
 								<div className="flex flex-row gap-6 justify-center mt-4 lg:justify-start">
@@ -173,7 +173,7 @@ function App() {
 									</a>
 									<button
 										type="button"
-										onClick={()=>{sendMessage(messageBase)}}
+										onClick={() => { sendMessage(messageBase) }}
 									>
 										<WhatsappLogoIcon size={32} className="hero-icons-contact" />
 									</button>
@@ -196,13 +196,13 @@ function App() {
 
 							<div>
 								<img
-									onDoubleClick={()=>{handleEasterEgg()}}
+									onDoubleClick={() => { handleEasterEgg() }}
 									src={profile}
 									alt="foto-pessoal"
 									className={`object-center 
 									drop-shadow-sm drop-shadow-text-primary/40
 									hover:drop-shadow-md hover:drop-shadow-text-primary hover:scale-105
-									${easterEgg? 'animate-spin':''}
+									${easterEgg ? 'animate-spin' : ''}
 									object-cover 
 									h-70 w-auto lg:h-90 rounded-4xl xl:h-110`}
 
@@ -404,7 +404,7 @@ function App() {
 						</div>
 					</section>
 					{/* FIM TECNOLIGIAS QUE UTILIZO */}
-					</FadeInSection>
+				</FadeInSection>
 
 
 				<FadeInSection>
@@ -559,11 +559,11 @@ function App() {
 						<div className='flex flex-col justify-center items-center'>
 							<div className='flex flex-wrap gap-x-10 gap-y-4 items-center justify-center mb-6'>
 								{firstProject?.map((project) => (
-										<CardProject key={project.id} project={project} />
-									))
+									<CardProject key={project.id} project={project} />
+								))
 								}
-								
-								{ showProjects &&
+
+								{showProjects &&
 									restProject?.map((project) => (
 										<CardProject key={project.id} project={project} />
 									))
@@ -577,7 +577,7 @@ function App() {
 								title={`${showProjects ? 'Ver menos' : 'Ver mais'}`}
 								onclick={() => {
 									handleShowProjects();
-								}}/>
+								}} />
 
 						</div>
 					</section>
@@ -612,10 +612,10 @@ function App() {
 						</div>
 
 						<div className='flex flex-row flex-wrap gap-x-4 gap-y-5 xl:gap-x-10 items-center justify-center'>
-							<CardWork description='Conversamos sobre sua necessidade e objetivos.' title='Entendimento' number={1}/>
-							<CardWork description='Estrutura, layout e tecnologias definidas.' title='Planejamento' number={2}/>
-							<CardWork description='Código limpo, testes e foco em perfomance.' title='Desenvolvimento' number={3}/>
-							<CardWork description='Entrega, ajustes e suporte vitalício.' title='Entrega e suporte' number={4}/>
+							<CardWork description='Conversamos sobre sua necessidade e objetivos.' title='Entendimento' number={1} />
+							<CardWork description='Estrutura, layout e tecnologias definidas.' title='Planejamento' number={2} />
+							<CardWork description='Código limpo, testes e foco em perfomance.' title='Desenvolvimento' number={3} />
+							<CardWork description='Entrega, ajustes e suporte vitalício.' title='Entrega e suporte' number={4} />
 						</div>
 
 
@@ -627,7 +627,7 @@ function App() {
 				<FadeInSection>
 					{/* VAMOS TRABALHAR JUNTOS */}
 					<section id='contato'
-					className="
+						className="
 							gap-5
 							section-anchor
 							mt-9
@@ -647,22 +647,22 @@ function App() {
 
 							<div className='flex flex-col justify-center items-start gap-2'>
 								<div className='flex flex-row gap-2 justify-center items-center'>
-									<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25}/>
+									<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25} />
 									<p> Resposta rápida</p>
 								</div>
 								<div className='flex flex-row gap-2 justify-center items-center'>
-									<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25}/>
+									<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25} />
 									<p> Orçamento sem compromisso</p>
 								</div>
 								<div className='flex flex-row gap-2 justify-center items-center'>
-									<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25}/>
+									<CheckCircleIcon className='text-text-primary flex flex-row gap-2' size={25} />
 									<p> Soluções personalizadas</p>
 								</div>
 							</div>
 
 							<div className='flex flex-col justify-center items-center gap-2'>
-								<button onClick={()=>{sendMessage(verProjetos)}} type="button" className='button-normal'>Falar no Whatsapp</button>
-								<button onClick={()=>{sendMessage(solicitarOrcamento)}} type="button"className='button-outline'>Solicitar orçamento</button>
+								<button onClick={() => { sendMessage(verProjetos) }} type="button" className='button-normal'>Falar no Whatsapp</button>
+								<button onClick={() => { sendMessage(solicitarOrcamento) }} type="button" className='button-outline'>Solicitar orçamento</button>
 							</div>
 
 						</div>
@@ -670,9 +670,9 @@ function App() {
 					{/* FIM VAMOS TRABALHAR JUNTOS */}
 				</FadeInSection>
 
-				<Footer/>
-		</main>
-	</div>
+				<Footer />
+			</main>
+		</div>
 	);
 }
 
