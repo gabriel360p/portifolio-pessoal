@@ -1,5 +1,4 @@
 import {
-	ArrowRightIcon,
 	BriefcaseIcon,
 	CheckCircleIcon,
 	ClockIcon,

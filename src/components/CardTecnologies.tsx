@@ -13,19 +13,18 @@ export function CardTecnolgies({
 }: CardTecnolgiesProps) {
 	return (
 		<div
-			className="
-        hover:-translate-y-2
-        active:-translate-y-2
- 		hover:shadow-text-primary/20 hover:shadow-sm 
- 		active:shadow-text-primary/20 active:shadow-sm 
-        flex flex-col items-center 
-        min-w-[111px]
-        bg-bg-card/10
-		backdrop-blur-md
-        border border-text-secundary
-        gap-2 p-4 
-        shadow rounded-xl text-center 
-        "
+			className=
+				{`hover:-translate-y-2
+				active:-translate-y-2
+				hover:shadow-text-primary/20 hover:shadow-sm 
+				active:shadow-text-primary/20 active:shadow-sm 
+				flex flex-col items-center 
+				min-w-[111px]
+				bg-bg-card/10
+				backdrop-blur-md
+				border border-text-secundary
+				gap-2 p-4 
+				shadow rounded-xl text-center`} 
 		>
 			<div>
 				<a href={link} target="_blank" rel="noopener noreferrer">

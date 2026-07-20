@@ -11,16 +11,17 @@ export function CardProject({
 	custom,
 }: CardProjectsProps) {
 	return (
-		<div className="
-		hover:-translate-y-2
-        active:-translate-y-2
-		hover:shadow-text-primary/20 hover:shadow-sm 
- 		active:shadow-text-primary/20 active:shadow-sm 
-		flex flex-col w-70 h-fit
-		backdrop-blur-md
-		bg-bg-card/10 border border-text-secundary rounded-xl
-
-		 ">
+		<div className={`
+			${custom}
+			hover:-translate-y-2
+			active:-translate-y-2
+			hover:shadow-text-primary/20 hover:shadow-sm 
+			active:shadow-text-primary/20 active:shadow-sm 
+			flex flex-col w-70 h-fit
+			backdrop-blur-md
+			bg-bg-card/10 border border-text-secundary rounded-xl
+		`}
+		 >
 			<div>
 				<img src={project.photo} className="object-cover w-auto rounded-xl" alt={`foto do projeto ${project.title}`} />
 			</div>

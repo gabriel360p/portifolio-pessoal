@@ -12,7 +12,6 @@ interface ButtonProps {
 export function Button({
 	title,
 	onclick,
-	variant,
 	fullWidth,
 	personalize,
 	icon,
@@ -27,6 +26,7 @@ export function Button({
             `}
 		>
 			{title}
+			{icon}
 		</button>
 	);
 }

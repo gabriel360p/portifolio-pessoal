@@ -17,8 +17,10 @@ export function CardCertificado({
 }: CardCertificadosProps) {
 	return (
 		<div
-			className="
-        hover:-translate-y-2
+			className=
+        {`
+		${custom}
+		hover:-translate-y-2
         active:-translate-y-2
  		hover:shadow-text-primary/20 hover:shadow-sm 
  		active:shadow-text-primary/20 active:shadow-sm 
@@ -31,7 +33,7 @@ export function CardCertificado({
         border border-text-secundary
         gap-1 
         rounded-xl p-0 
-        "
+        `}
 		>
 			<div>
 				<a href={link} target="_blank" rel="noopener noreferrer">
