@@ -130,9 +130,9 @@ function App() {
 								<div className=" flex flex-col gap-4 leading-7 text-center lg:text-start">
 									<p className="text-text-primary lg:text-3xl">Olá, eu sou</p>
 									<p className="font-bold text-4xl lg:text-7xl">
-										Gabriel <span className="text-text-primary">Costa</span><span className='animate-ping text-7xl text-text-primary'>_</span>
+										Gabriel <span className="text-text-primary">Costa</span><span className='animate-ping text-4xl lg:text-7xl text-text-primary'>_</span>
 									</p>
-									<div className='flex gap-2 justify-start items-center'>
+									<div className='flex gap-2 ps-9 md:justify-start md:ps-0 items-center'>
 										<GreaterThanIcon size={20} />
 										<p className="font-bold lg:text-2xl">
 											Desenvolvedor Front-end
@@ -393,6 +393,7 @@ function App() {
 							/>
 							<CardTecnolgies
 								title="GitHub"
+								custom='rounded-full'
 								figure_path={githubLogo}
 								link="https://github.com/gabriel360p"
 							/>
