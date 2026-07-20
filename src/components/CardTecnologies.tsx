@@ -15,6 +15,7 @@ export function CardTecnolgies({
 		<div
 			className=
 				{`hover:-translate-y-2
+				${custom}
 				active:-translate-y-2
 				hover:shadow-text-primary/20 hover:shadow-sm 
 				active:shadow-text-primary/20 active:shadow-sm 

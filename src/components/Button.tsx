@@ -15,9 +15,11 @@ export function Button({
 	fullWidth,
 	personalize,
 	icon,
+	variant,
 }: ButtonProps) {
 	return (
 		<button
+			type='button'
 			onClick={onclick}
 			className={`
             button-${variant}

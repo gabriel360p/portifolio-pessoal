@@ -39,7 +39,7 @@ import {
 } from '../utils/CertificadosExport';
 import {
 	csslogo,
-	githubLogo,
+	githubLogo,	
 	gitLogo,
 	htmlLogo,
 	jsLogo,
@@ -53,8 +53,9 @@ import { CardWork } from '../components/CardWork';
 import { Footer } from '../components/Footer';
 import type { Project } from '../types/ProjectsType';
 import { FadeInSection } from '../components/FadeInSection';
-import { sendMessage } from '../utils/sendMessage';
+
 import { easterEggMessage, messageBase, solicitarOrcamento, verProjetos } from '../utils/Messages';
+import { sendMessage } from '../utils/sendMessage';
 import { randomMessage } from '../utils/easterEgg';
 
 function App() {
