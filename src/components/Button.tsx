@@ -10,7 +10,7 @@ interface ButtonProps {
 }
 
 export function Button({
-	title,
+	title,	
 	onclick,
 	fullWidth,
 	personalize,
