@@ -16,8 +16,9 @@ export function CardProject({
         active:-translate-y-2
 		hover:shadow-text-primary/20 hover:shadow-sm 
  		active:shadow-text-primary/20 active:shadow-sm 
-		flex flex-col w-70
-		bg-bg-card border border-text-secundary rounded-xl
+		flex flex-col w-70 h-fit
+		backdrop-blur-md
+		bg-bg-card/10 border border-text-secundary rounded-xl
 
 		 ">
 			<div>

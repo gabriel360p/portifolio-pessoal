@@ -1,11 +1,12 @@
 import { ListIcon, XIcon } from '@phosphor-icons/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../assets/logo/logo-cut-removebg.png';
-import { ScrollHook } from '../hooks/ScrollHook';
+
 export function NavBar() {
 	const [navMenu, setNavMenu] = useState<boolean>(false);
 	const [navMenuFirst, setNavMenuFirst] = useState<boolean>(false);
-	const scrollPosition = ScrollHook();
+	
+	const [sectionMenu, setSectionMenu] = useState<string>('inicio');
 
 	function handleMenuState(): void {
 		/*
@@ -16,13 +17,36 @@ export function NavBar() {
 		setNavMenu(!navMenu);
 	}
 
+	useEffect(()=>{
+		const sections = document.querySelectorAll('section')
+		const observer = new IntersectionObserver(entries=>{
+			entries.forEach(entry=>{
+				if(entry.isIntersecting){
+					setSectionMenu(entry.target.id)
+				}
+			})
+		},
+		{
+			threshold:0.5			
+		}
+	)
+
+	sections.forEach(section=>{
+		observer.observe(section)
+	});
+
+    return () => observer.disconnect();
+
+	},[])
+
 	return (
 		<>
 			<header
 				className={`
         fixed
         z-100
-        w-screen bg-bg-default
+        w-screen
+		backdrop-blur-xl
         min-h-15
         py-2
         px-5
@@ -30,14 +54,19 @@ export function NavBar() {
         `}
 			>
 				<nav className="flex items-center justify-between w-full h-full">
-					<img
-						alt="logo"
-						src={logo}
-						className="
-                        object-cover 
-                        h-10
-                        w-auto"
-					/>
+					<a href='#inicio'>
+						<img
+							alt="logo"
+							src={logo}
+							className="
+							object-cover 
+							h-10
+							w-auto
+							hover:scale-105
+							active:scale-105
+							"
+						/>
+					</a>
 
 					<div
 						className="hidden 
@@ -46,56 +75,64 @@ export function NavBar() {
 					>
 						<div
 							className="
-                    flex gap-7
+                    flex 
+					gap-4
+					lg:gap-8
+					xl:gap-12
                     text-md
                     font-semibold
                     text-white"
 						>
 							<a
 								href="#inicio"
-								className={`
-                        desktop-menu-items ${scrollPosition <= 400 ? 'text-text-primary' : ''}`}
-							>
+								className={`desktop-menu-items ${sectionMenu==='inicio'?'text-text-primary':'text-white'}`}
+								>
 								Inicio
 							</a>
 
 							<a
 								href="#sobre"
-								className={`
-                        desktop-menu-items ${scrollPosition >= 400 && scrollPosition <= 800 ? 'text-text-primary' : ''}`}
-							>
+								className={`desktop-menu-items ${sectionMenu==='sobre'?'text-text-primary':'text-white'}`}
+								>
 								Sobre
 							</a>
 
 							<a
+								href="#servicos"
+								className={`desktop-menu-items ${sectionMenu==='servicos'?'text-text-primary':'text-white'}`}
+								>
+								Serviços
+							</a>
+
+							<a
 								href="#tecnologias"
-								className={`
-                        desktop-menu-items ${scrollPosition >= 800 && scrollPosition <= 1055 ? 'text-text-primary' : ''}`}
-							>
+								className={`desktop-menu-items ${sectionMenu==='tecnologias'?'text-text-primary':'text-white'}`}
+
+								>
 								Tecnologias
 							</a>
 
 							<a
 								href="#formacoes"
-								className={`
-                        desktop-menu-items ${scrollPosition >= 1056 && scrollPosition <= 1200 ? 'text-text-primary' : ''}`}
+								className={`desktop-menu-items ${sectionMenu==='formacoes'?'text-text-primary':'text-white'}`}
+
 							>
 								Formações
 							</a>
 
 							<a
 								href="#projetos"
-								className={`
-                        desktop-menu-items ${scrollPosition >= 1056 && scrollPosition <= 1200 ? 'text-text-primary' : ''}`}
-							>
+								className={`desktop-menu-items ${sectionMenu==='projetos'?'text-text-primary':'text-white'}`}
+								
+								>
 								Projetos
 							</a>
 
 							<a
 								href="#contato"
-								className={`
-                        desktop-menu-items ${scrollPosition >= 1056 && scrollPosition <= 1200 ? 'text-text-primary' : ''}`}
-							>
+								className={`desktop-menu-items ${sectionMenu==='contato'?'text-text-primary':'text-white'}`}
+
+								>
 								Contato
 							</a>
 						</div>
@@ -133,7 +170,7 @@ export function NavBar() {
 					</div>
 				</nav>
 			</header>
-			$
+			
 			{navMenuFirst && (
 				<div
 					className={`
@@ -142,8 +179,7 @@ export function NavBar() {
 										? 'flex animate-surge'
 										: 'animate-disappear pointer-events-none'
 								}
-                z-90 bg-bg-default h-fit fixed inset-0 top-16 md:hidden
-                border-b-text-primary border
+                z-90 backdrop-blur-xl h-fit fixed inset-0 top-15 md:hidden
                  `}
 				>
 					<div
@@ -153,25 +189,39 @@ export function NavBar() {
                     p-5
                     text-white"
 					>
-						<a className="mobile-menu-items" href="#inicio">
+						<a 
+						className={`mobile-menu-items ${sectionMenu==='inicio'?'text-text-primary':'text-white'}`}
+						href="#inicio">
 							Inicio
 						</a>
-						<a className="mobile-menu-items" href="#sobre">
+						<a 
+						className={`mobile-menu-items ${sectionMenu==='sobre'?'text-text-primary':'text-white'}`}
+						href="#sobre">
 							Sobre
 						</a>
-						<a className="mobile-menu-items" href="#serviços">
+						<a 
+						className={`mobile-menu-items ${sectionMenu==='servicos'?'text-text-primary':'text-white'}`}
+						href="#servicos">
 							Serviços
 						</a>
-						<a className="mobile-menu-items" href="#tecnologias">
+						<a 
+						className={`mobile-menu-items ${sectionMenu==='tecnologias'?'text-text-primary':'text-white'}`}
+						href="#tecnologias">
 							Tecnologias
 						</a>
-						<a className="mobile-menu-items" href="#formacoes">
+						<a 
+						className={`mobile-menu-items ${sectionMenu==='formacoes'?'text-text-primary':'text-white'}`}
+						href="#formacoes">
 							Formações
 						</a>
-						<a className="mobile-menu-items" href="#projetos">
+						<a 
+						className={`mobile-menu-items ${sectionMenu==='projetos'?'text-text-primary':'text-white'}`}
+						href="#projetos">
 							Projetos
 						</a>
-						<a className="mobile-menu-items" href="#contato">
+						<a 
+						className={`mobile-menu-items ${sectionMenu==='contato'?'text-text-primary':'text-white'}`}
+						href="#contato">
 							Contato
 						</a>
 					</div>

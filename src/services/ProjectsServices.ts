@@ -15,17 +15,6 @@ export const projects:Project[]=
         status:false,
     },
     {   
-        id:"0",
-        title:"TopDog",
-        photo:topdog,
-        description:"Sistema de gerenciamento de pedidos da HotDogueria TopDog ",
-        demo:"",
-        github:"https://github.com/gabriel360p/topdog-frontend",
-        badge:"Javascript,TypeScript,Tailwind",
-        duration:"2 meses",
-        status:false,
-    },
-    {   
         id:"1",
         title:"TopDog",
         photo:topdog,

@@ -26,7 +26,8 @@ export function CardCertificado({
         w-65
         sm:w-49
         md:w-50
-        bg-bg-card
+        bg-bg-card/10
+		backdrop-blur-md
         border border-text-secundary
         gap-1 
         rounded-xl p-0 
@@ -38,7 +39,7 @@ export function CardCertificado({
 						src={photo}
 						alt={`${title}-icon`}
 						className="
-                    w-fit
+                   		 w-fit rounded-xl
                     "
 					/>
 				</a>

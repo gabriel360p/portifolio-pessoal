@@ -16,7 +16,8 @@ export function HelpCard({ custom, title, icon, description }: HelpCardProps) {
 				hover:shadow-text-primary/20 hover:shadow-sm 
  				active:shadow-text-primary/20 active:shadow-sm 
                 border-[0.5px] 
-                bg-bg-card
+                bg-bg-card/10
+				backdrop-blur-md
                 w-full
                 md:max-w-[280px]
                 flex h-35 justify-center items-center

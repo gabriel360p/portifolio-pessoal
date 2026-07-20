@@ -12,6 +12,7 @@
             opacity:100%;
         }
     }
+
       --animate-disappear: disappear 1s ease-in-out forwards;
    @keyframes disappear {
     from {
@@ -24,6 +25,18 @@
         transform: translateY(-250px);
     }
 }
+
+    --animate-glow:glow 1.5s ease-in-out infinite alternate;
+
+    @keyframes glow{
+        from{
+            box-shadow: rgba(18, 205, 80, 0) 0px 3px 0px;
+        }
+        to{
+            box-shadow: rgba(18, 205, 80, 0.50) 0px 6px 10px;
+        }
+    }
+
     --color-bg-default:#000405;
     --color-bg-panel:#040a0b;
     --color-bg-card:#030c0b;
@@ -39,6 +52,35 @@
 
 
 }
+html{
+    @apply scroll-smooth
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 0px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      #00ff88,
+      #00bfff
+    );
+    border-radius: 999px;
+  }
+
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: #00ff88 #050505;
+  }
+}
+
 
 body {
 	@apply bg-bg-default text-white
@@ -60,16 +102,19 @@ a {
 
 .desktop-menu-items {
 	@apply
-    hover:text-text-primary
-    active:text-text-primary
+    hover:text-text-primary hover:scale-105
+    active:text-text-primary active:scale-105
     cursor-pointer
 }
-
+.section-anchor{
+    @apply
+    scroll-mt-16
+}
 .mobile-menu-items {
 	@apply
     transition-all 
-    active:translate-x-4 hover:text-text-primary
-    hover:translate-x-4 active:text-text-primary
+    active:scale-105 hover:text-text-primary
+    hover:scale-105 active:text-text-primary
 }
 
 .button-normal {
@@ -80,8 +125,8 @@ a {
     bg-text-primary
     py-[0.5rem] px-3 
     text-bg-default
-    hover:bg-text-primary/50    hover:text-white
-    active:bg-text-primary/50   active:text-white
+    hover:bg-text-primary/50    hover:text-white hover:scale-105
+    active:bg-text-primary/50   active:text-white active:scale-105
 }
 .button-outline {
 	@apply 
@@ -91,8 +136,8 @@ a {
     border-text-primary
     rounded-md 
     text-white
-    hover:bg-text-primary/50 hover:border-text-primary/50 hover:text-bg-default
-    active:bg-text-primary/50 active:border-text-primary/50 active:text-bg-default
+    hover:bg-text-primary/50 hover:border-none hover:text-bg-default hover:scale-105
+    active:bg-text-primary/50 active:border-none active:text-bg-default active:scale-105
     ;
 }
 
@@ -103,4 +148,54 @@ a {
     active:text-text-primary
     active:scale-125
     cursor-pointer
+}
+
+
+@keyframes backgroundFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.background-grid {
+  position: relative;
+}
+
+.background-grid-overlay {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(
+      circle at top left,
+      rgba(0, 255, 150, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(0, 150, 255, 0.08),
+      transparent 30%
+    ),
+    linear-gradient(
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    auto,
+    auto,
+    40px 40px,
+    40px 40px;
+
+  opacity: 0;
+  animation: backgroundFade 1.5s ease-out forwards;
 }
