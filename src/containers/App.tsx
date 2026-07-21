@@ -24,20 +24,6 @@ import { CardTecnolgies } from '../components/CardTecnologies';
 import { HelpCard } from '../components/HelpCard';
 import { NavBar } from '../components/Navbar';
 import {
-	bills,
-	certHt,
-	cssInter,
-	dgrid,
-	fullStack,
-	ifrn,
-	jsNode,
-	jsV,
-	jsVI,
-	pEngi,
-	reactBonus,
-	zero,
-} from '../utils/CertificadosExport';
-import {
 	csslogo,
 	githubLogo,
 	gitLogo,
@@ -57,13 +43,24 @@ import { FadeInSection } from '../components/FadeInSection';
 import { easterEggMessage, messageBase, solicitarOrcamento, verProjetos } from '../utils/Messages';
 import { sendMessage } from '../utils/MandarMensagem';
 import { randomMessage } from '../utils/EasterEgg';
+import type { Certificate } from '../types/CertificateType';
+import { Modal } from '../components/Modal/Modal';
+import { certificados } from '../services/CertificatesService';
+import { XIcon } from '@phosphor-icons/react/dist/ssr';
 
 function App() {
 	const [showCertifcates, setShowCertifcates] = useState<boolean>(false);
 	const [easterEgg, setEasterEgg] = useState<boolean>(false);
 	const [showProjects, setShowProjects] = useState<boolean>(false);
+
 	const [firstProject, setFirstProject] = useState<Project[]>();
 	const [restProject, setRestProject] = useState<Project[]>();
+
+	const [firstCertificate, setFirstCertificate] = useState<Certificate[]>();
+	const [restCertificate, setRestCertificate] = useState<Certificate[]>();
+
+	const [modalState, setModalState] = useState<boolean>(false);
+	const [modalData, setModalData] = useState<Project | Certificate | undefined>();
 
 	function handleEasterEgg() {
 		setEasterEgg(!easterEgg)
@@ -90,15 +87,27 @@ function App() {
 			setEasterEgg(false)
 		}, 20000)
 	}
+
 	function handleShowProjects() {
 		setShowProjects(!showProjects);
 	}
+
+	function handleModal(state: boolean, data?: Project | Certificate) {
+		//Controlando tudo em uma única função!
+		setModalState(state);
+		if (state) setModalData(data)
+		else setModalData(undefined)
+	}
+
 	function handleShowCertifcates() {
 		setShowCertifcates(!showCertifcates);
 	}
 	useEffect(() => {
 		setFirstProject(projects.slice(0, 3))
 		setRestProject(projects.slice(4))
+
+		setFirstCertificate(certificados.slice(0, 4))
+		setRestCertificate(certificados.slice(5))
 	}, [])
 
 	return (
@@ -433,85 +442,16 @@ function App() {
 						</div>
 
 						<div className="flex flex-wrap gap-x-4 gap-y-4 items-center justify-center lg:gap-x-6 xl:gap-x-8">
-							<CardCertificado
-								title="Téc. Informática"
-								school={'IFRN - Caicó'}
-								duration="2020 - 2024"
-								photo={ifrn}
-							/>
-							<CardCertificado
-								title="Prog. com I.A"
-								school={'DevClub'}
-								duration="2026"
-								photo={zero}
-							/>
-							<CardCertificado
-								title="Prog. FullStack"
-								school={'DevClub'}
-								duration="2026"
-								photo={fullStack}
-							/>
-							<CardCertificado
-								title="Formação em Engenharia de Prompt"
-								school={'DevClub'}
-								duration="2026"
-								photo={pEngi}
-							/>
-							<CardCertificado
-								title="TypeScript"
-								school={'DevClub'}
-								duration="2026"
-								photo={bills}
-							/>
+							{firstCertificate?.map((curso) => (
+								<CardCertificado key={curso.id} certificado={curso} onClick={() => { handleModal(true, curso) }} />
+							))
+							}
 
-							{showCertifcates ? (
-								<>
-									<CardCertificado
-										title="HTML - Front End Club"
-										school={'DevClub'}
-										duration="2026"
-										photo={certHt}
-									/>
-									<CardCertificado
-										title="CSS Intermediário"
-										school={'DevClub'}
-										duration="2026"
-										photo={cssInter}
-									/>
-									<CardCertificado
-										title="CSS - Display GRID"
-										school={'DevClub'}
-										duration="2026"
-										photo={dgrid}
-									/>
-									<CardCertificado
-										title="JavaScript pt. V - A Nova Ordem de Dados"
-										school={'DevClub'}
-										duration="2026"
-										photo={jsV}
-									/>
-									<CardCertificado
-										title="JavaScript pt. VI - A Ascensão do Async_Await"
-										school={'DevClub'}
-										duration="2026"
-										photo={jsVI}
-									/>
-									<CardCertificado
-										title="Node"
-										school={'DevClub'}
-										duration="2026"
-										photo={jsNode}
-									/>
-									<CardCertificado
-										title="React pt.3- Bônus - DevClub Full Stack"
-										school={'DevClub'}
-										duration="2026"
-										photo={reactBonus}
-									/>
-								</>
-							) : (
-								''
-							)}
+							{showCertifcates &&
+								restCertificate?.map((curso) => (
+									<CardCertificado key={curso.id} certificado={curso} onClick={() => { handleModal(true, curso) }} />
+								))
+							}
 						</div>
 						<div>
 							<Button
@@ -560,13 +500,13 @@ function App() {
 						<div className='flex flex-col justify-center items-center'>
 							<div className='flex flex-wrap gap-x-10 gap-y-4 items-center justify-center mb-6'>
 								{firstProject?.map((project) => (
-									<CardProject key={project.id} project={project} />
+									<CardProject key={project.id} project={project} onClick={() => { handleModal(true, project) }} />
 								))
 								}
 
 								{showProjects &&
 									restProject?.map((project) => (
-										<CardProject key={project.id} project={project} />
+										<CardProject key={project.id} project={project} onClick={() => { handleModal(true, project) }} />
 									))
 								}
 							</div>
@@ -673,6 +613,44 @@ function App() {
 
 				<Footer />
 			</main>
+
+			{modalState && modalData ? (
+				<div className='
+					flex justify-center items-center fixed w-screen h-screen
+					z-100
+					inset-0
+					backdrop-blur-[2px]  text-white bg-[rgba(0,0,0,0.5)]
+				'>
+					{/* Aqui nós vamos montar a estrutura base do modal */}
+					<div
+					className='
+					flex flex-col
+					px-2 py-4
+					w-[80%] max-w-200 h-fit
+					backdrop-blur-md bg-bg-card/90 border border-text-secundary rounded-xl
+					'
+					>
+						<div className='flex items-center justify-between'>
+							<div>
+								<h2 className='font-bold'>{modalData.title}</h2>
+							</div>
+							<div>
+								<XIcon onClick={()=>{handleModal(false)}} className='
+								active:scale-125 
+								hover:scale-125 
+								text-text-primary' size={20}/>
+							</div>
+						</div>
+						<div className='w-full h-full'>
+							{/* Content, onde vai ficar o conteúdo do modal */}
+							<Modal data={modalData} />
+						</div>
+
+					</div>
+
+
+				</div>
+			) : ("")}
 		</div>
 	);
 }

@@ -1,24 +1,21 @@
+import type { MouseEventHandler } from "react";
+import type { Certificate } from "../types/CertificateType";
+
 interface CardCertificadosProps {
-	title: string;
-	duration: string;
-	photo: string;
-	school: string;
-	link?: string;
+	certificado: Certificate
 	custom?: string;
+	onClick?: MouseEventHandler<HTMLImageElement>;
 }
 
 export function CardCertificado({
-	title,
-	school,
-	link,
-	photo,
-	duration,
+	certificado,
 	custom,
+	onClick,
 }: CardCertificadosProps) {
 	return (
 		<div
 			className=
-        {`
+			{`
 		${custom}
 		hover:-translate-y-2
         active:-translate-y-2
@@ -36,20 +33,21 @@ export function CardCertificado({
         `}
 		>
 			<div>
-				<a href={link} target="_blank" rel="noopener noreferrer">
-					<img
-						src={photo}
-						alt={`${title}-icon`}
-						className="
+				{/* <a href={certificadolink} target="_blank" rel="noopener noreferrer"> */}
+				<img
+					onClick={onClick}
+					src={certificado.photo}
+					alt={`${certificado.title}-icon`}
+					className="
                    		 w-fit rounded-xl
                     "
-					/>
-				</a>
+				/>
+				{/* </a> */}
 			</div>
 			<div className="flex text-white flex-col justify-center items-center p-2 text-center w-full h-full ">
-				<h2 className="font-bold">{title}</h2>
-				<p>{school}</p>
-				<p>{duration}</p>
+				<h2 className="font-bold">{certificado.title}</h2>
+				<p>{certificado.school}</p>
+				<p>{certificado.duration}</p>
 			</div>
 		</div>
 	);

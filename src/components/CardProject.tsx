@@ -2,13 +2,15 @@ import type { Project } from "../types/ProjectsType";
 import { Badge } from "./Badge";
 
 interface CardProjectsProps {
-	project:Project
+	project: Project
 	custom?: string;
+	onClick?: React.MouseEventHandler<HTMLImageElement>;
 }
 
 export function CardProject({
 	project,
 	custom,
+	onClick,
 }: CardProjectsProps) {
 	return (
 		<div className={`
@@ -21,9 +23,10 @@ export function CardProject({
 			backdrop-blur-md
 			bg-bg-card/10 border border-text-secundary rounded-xl
 		`}
-		 >
+		>
 			<div>
-				<img src={project.photo} className="object-cover w-auto rounded-xl" alt={`foto do projeto ${project.title}`} />
+				{/** biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+			<img onClick={onClick} src={project.photo} className="object-cover w-auto rounded-xl" alt={`foto do projeto ${project.title}`} />
 			</div>
 			<div className="flex flex-col gap-4 p-2 mt-2">
 				<h2 className="font-bold">{project.title}</h2>
@@ -31,15 +34,15 @@ export function CardProject({
 				<div className="flex flex-row flex-wrap">
 					{
 						//separando na própria array, usando o ',' como medidor
-						project.badge.split(',').map(badge=>(
-							<Badge key={badge} title={badge}/>
+						project.badge?.split(',').map(badge => (
+							<Badge key={badge} title={badge} />
 						))
 					}
 				</div>
 			</div>
 			<div className="flex gap-4 p-2">
-				<a className="button-normal" href={project.demo} target="_blank"  rel="noopener">Demo</a>
-				<a className="button-outline" href={project.github} target="_blank"  rel="noopener">Github</a>
+				<a className="button-normal" href={project.demo} target="_blank" rel="noopener">Demo</a>
+				<a className="button-outline" href={project.github} target="_blank" rel="noopener">Github</a>
 			</div>
 		</div>
 	);

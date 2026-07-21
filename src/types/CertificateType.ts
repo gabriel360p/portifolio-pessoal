@@ -1,13 +1,11 @@
 
-export interface Project {
+export interface Certificate {
     id: string;
     title: string;
+    school?: string;
     photo: string;
     photoCollection?: string[];
     description: string;
-    demo?: string;
-    github?: string;
-    badge?: string;
     duration: string;
     status: boolean;
     discriminator: string;
