@@ -1,3 +1,5 @@
 export {default as topdog} from '../assets/projetos/topdog.png'
 export {default as gerador} from '../assets/projetos/gerador-senhas.png'
 export {default as clima} from '../assets/projetos/clima.png'
+export {default as cep} from '../assets/projetos/busca-cep.png'
+export {default as pesquisarPerfilGithub} from '../assets/projetos/perfil-github.png'

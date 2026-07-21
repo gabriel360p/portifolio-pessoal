@@ -1,5 +1,5 @@
 import type { Project } from "../types/ProjectsType";
-import { clima, topdog } from "../utils/ProjetosExport";
+import { cep, clima, pesquisarPerfilGithub, topdog } from "../utils/ProjetosExport";
 import { gerador } from "../utils/ProjetosExport";
 
 export const projects: Project[] =
@@ -35,10 +35,33 @@ export const projects: Project[] =
             description: "Veja as informações do clima agora mesmo",
             demo: "https://clima-agora-react.vercel.app/",
             github: "https://github.com/gabriel360p/clima-app-react.git",
-            badge: "Javascript,Styled-Components",
+            badge: "Javascript,OpenWeatherMap API",
             duration: "1 dia",
             status: true,
             discriminator: 'project',
         },
-
+        {
+            id: "3",
+            title: "Busca Cep",
+            photo: cep,
+            description: "Veja suas informações de endereço agora mesmo",
+            demo: "https://buscadordecep-react.vercel.app/ ",
+            github: "https://github.com/gabriel360p/react-cep-form-autocomplete.git",
+            badge: "Javascript,ViaCep API",
+            duration: "1 dia",
+            status: true,
+            discriminator: 'project',
+        },
+        {
+            id: "4",
+            title: "Buscador de perfil do Github",
+            photo:pesquisarPerfilGithub,
+            description: "Veja informações de perfis do github",
+            demo: "https://buscador-perfil-github.vercel.app/",
+            github: "https://github.com/gabriel360p/github-search-react.git",
+            badge: "Javascript,GitHub API",
+            duration: "1 dia",
+            status: true,
+            discriminator: 'project',
+        },
     ]

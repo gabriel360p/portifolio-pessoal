@@ -103,10 +103,10 @@ function App() {
 		setShowCertifcates(!showCertifcates);
 	}
 	useEffect(() => {
-		setFirstProject(projects.slice(0, 3))
+		setFirstProject(projects.slice(0, 4))
 		setRestProject(projects.slice(4))
 
-		setFirstCertificate(certificados.slice(0, 4))
+		setFirstCertificate(certificados.slice(0, 5))
 		setRestCertificate(certificados.slice(5))
 	}, [])
 
