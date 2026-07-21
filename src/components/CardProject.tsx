@@ -40,6 +40,13 @@ export function CardProject({
 					}
 				</div>
 			</div>
+			<div className="p-2">
+				{project.status?(
+					<span className="mx-1 rounded px-1 py-0.5 text-black bg-green-600">Projeto finalizado</span>
+				):(
+					<span className="mx-1 rounded px-1 py-0.5 text-black bg-amber-300">Projeto em andamento</span>
+				)}
+			</div>
 			<div className="flex gap-4 p-2">
 				<a className="button-normal" href={project.demo} target="_blank" rel="noopener">Demo</a>
 				<a className="button-outline" href={project.github} target="_blank" rel="noopener">Github</a>

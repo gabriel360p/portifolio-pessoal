@@ -208,7 +208,9 @@ function App() {
 									onDoubleClick={() => { handleEasterEgg() }}
 									src={profile}
 									alt="foto-pessoal"
-									className={`object-center 
+									className={`
+									object-center 
+									
 									drop-shadow-sm drop-shadow-text-primary/40
 									hover:drop-shadow-md hover:drop-shadow-text-primary hover:scale-105
 									${easterEgg ? 'animate-spin' : ''}

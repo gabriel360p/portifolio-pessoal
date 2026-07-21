@@ -25,3 +25,9 @@ export function Modal({ data }: ModalProps) {
             break;
     }
 }
+// O que colocar no modal:
+// Objetivo
+// Tecnologias
+// Principais funcionalidades
+// Desafios enfrentados
+// Aprendizados
