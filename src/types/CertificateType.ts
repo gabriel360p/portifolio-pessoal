@@ -6,7 +6,7 @@ export interface Certificate {
     photo: string;
     photoCollection?: string[];
     description: string;
-    duration: string;
+    duration?: string;
     status: boolean;
     discriminator: string;
 }
