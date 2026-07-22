@@ -194,7 +194,7 @@ function App() {
 										<InstagramLogoIcon size={32} className="hero-icons-contact" />
 									</a>
 									<a
-										href="mailto:seuemail@gmail.com?subject=Contato%20via%20Portfólio"
+										href="mailto:seuemail@gmail.com?subject=Solicitação%20de%20Projeto%20Web&body=Olá%20Gabriel,%0D%0A%0D%0AConheci%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.%0D%0A%0D%0ADescrição%20do%20projeto:%20%0D%0A%0D%0APrazo:%20%0D%0AOrçamento%20estimado:%20"
 										rel="noopener noreferrer"
 										target="_blank"
 									>
