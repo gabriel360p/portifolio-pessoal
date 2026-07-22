@@ -8,7 +8,7 @@ export interface Project {
     demo?: string;
     github?: string;
     badge?: string;
-    duration: string;
+    duration?: string;
     status: boolean;
     discriminator: string;
 }

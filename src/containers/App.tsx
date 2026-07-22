@@ -627,15 +627,15 @@ function App() {
 					<div
 					className='
 					flex flex-col
-					px-2 py-4
+					px-3 py-4
 					w-[80%] max-w-200 h-fit
 					backdrop-blur-md bg-bg-card/90 border border-text-secundary rounded-xl
 					'
 					>
-						<div className='flex items-center justify-between'>
-							<div>
+						<div className='flex items-center justify-end w-full'>
+							{/* <div>
 								<h2 className='font-bold'>{modalData.title}</h2>
-							</div>
+							</div> */}
 							<div>
 								<XIcon onClick={()=>{handleModal(false)}} className='
 								active:scale-125 
