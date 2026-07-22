@@ -11,6 +11,8 @@ import {
     jsV,
     jsVI,
     pEngi,
+    photosFullStack,
+    photosIFRN,
     reactBonus,
     zero,
 } from '../utils/CertificadosExport';
@@ -26,7 +28,7 @@ export const certificados: Certificate[] = [
         status: true,
         skills: "Lógica de Programação, SQL, Front End, Back End, API REST",
         discriminator: 'certificate',
-        photoCollection: [ifrn],
+        photoCollection: photosIFRN,
     },
     {
         id: "1",
@@ -50,7 +52,7 @@ export const certificados: Certificate[] = [
         skills: "HTML, CSS, JS, Node, React, NoSQL",
         status: true,
         discriminator: 'certificate',
-        photoCollection: [fullStack],
+        photoCollection: photosFullStack,
     },
     {
         id: "3",

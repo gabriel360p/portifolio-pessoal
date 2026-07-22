@@ -1,5 +1,5 @@
 
-import { CodeIcon, DownloadIcon, FileIcon, MedalIcon } from "@phosphor-icons/react";
+import { CodeIcon, FileIcon, MedalIcon } from "@phosphor-icons/react";
 import type { Certificate } from "../../types/CertificateType"
 import { Carrousel } from "../Carrousel";
 import { Badge } from "../Badge";
@@ -9,7 +9,7 @@ interface ModalCertificateProps {
 }
 export function ModalCertificate({ certificate }: ModalCertificateProps) {
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-8 pb-4">
 
             {/* Header do Modal */}
             <div className="flex gap-3 flex-row w-full items-center justify-start">
@@ -55,14 +55,12 @@ export function ModalCertificate({ certificate }: ModalCertificateProps) {
 
             </div>
 
-            <div className="flex text-text-primary active:text-black hover:text-black w-full justify-center items-center">
-                {/* footer do carrousel */}
-                {/** biome-ignore lint/a11y/useAnchorContent: <explanation> */}
+            {/* <div className="flex text-text-primary active:text-black hover:text-black w-full justify-center items-center">
                 <a className="flex flex-row gap-3 justify-center items-center button-outline w-full md:max-w-[80%]" href="/" aria-disabled>
                     <DownloadIcon className="" size={20} />
                     Baixar Certificado
                 </a>
-            </div>
+            </div> */}
 
         </div>
     )

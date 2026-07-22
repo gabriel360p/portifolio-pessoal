@@ -33,7 +33,6 @@ export function CardCertificado({
         `}
 		>
 			<div>
-				{/* <a href={certificadolink} target="_blank" rel="noopener noreferrer"> */}
 				<img
 					onClick={onClick}
 					src={certificado.photo}
@@ -42,7 +41,6 @@ export function CardCertificado({
                    		 w-fit rounded-xl
                     "
 				/>
-				{/* </a> */}
 			</div>
 			<div className="flex text-white flex-col justify-center items-center p-2 text-center w-full h-full ">
 				<h2 className="font-bold">{certificado.title}</h2>

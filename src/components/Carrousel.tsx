@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 interface CarrouselProps {
     photosCollection?: string[];
@@ -12,8 +13,10 @@ export function Carrousel({ photosCollection }: CarrouselProps) {
         <Swiper
             spaceBetween={50}
             slidesPerView={1}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+            modules={[Autoplay, Pagination]}
+            autoplay={true}
+        // onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
         >
             {photosCollection?.map(photo => (
                 <SwiperSlide>

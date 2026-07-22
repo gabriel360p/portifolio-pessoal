@@ -11,3 +11,20 @@ export { default as bills } from '../assets/certificados/Certificado - TypeScrip
 export { default as fullStack } from '../assets/certificados/certificado-fullstack.png';
 export { default as ifrn } from '../assets/certificados/certificado-IFRN.png';
 export { default as zero } from '../assets/certificados/certificado-inicial.png';
+
+
+export const photosFullStack: string[] = Object.values(import.meta.glob(
+    '../assets/certificados/devclub/*.{png,jpg,jpeg,webp}',
+    {
+        eager: true,
+        import: 'default',
+    }
+))
+
+export const photosIFRN: string[] = Object.values(import.meta.glob(
+    '../assets/certificados/ifrn/*.{png,jpg,jpeg,webp}',
+    {
+        eager: true,
+        import: 'default',
+    }
+))
