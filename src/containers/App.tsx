@@ -617,15 +617,15 @@ function App() {
 			</main>
 
 			{modalState && modalData ? (
-				<div className='
+				<div className={`
 					flex justify-center items-center fixed w-screen h-screen
 					z-100
 					inset-0
 					backdrop-blur-[2px]  text-white bg-[rgba(0,0,0,0.5)]
-				'>
+				`}>
 					{/* Aqui nós vamos montar a estrutura base do modal */}
 					<div
-					className='
+						className='
 					flex flex-col
 					px-3 py-4
 					w-[80%] max-w-200 h-fit
@@ -637,10 +637,10 @@ function App() {
 								<h2 className='font-bold'>{modalData.title}</h2>
 							</div> */}
 							<div>
-								<XIcon onClick={()=>{handleModal(false)}} className='
+								<XIcon onClick={() => { handleModal(false) }} className='
 								active:scale-125 
 								hover:scale-125 
-								text-text-primary' size={20}/>
+								text-text-primary' size={20} />
 							</div>
 						</div>
 						<div className='w-full h-full'>
