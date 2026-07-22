@@ -8,8 +8,8 @@ export { default as jsVI } from '../assets/certificados/Certificado - JavaScript
 export { default as jsNode } from '../assets/certificados/Certificado - Node.png';
 export { default as reactBonus } from '../assets/certificados/Certificado - React pt.3- Bônus - DevClub Full Stack.png';
 export { default as bills } from '../assets/certificados/Certificado - TypeScript - Backend - Devbills.png';
-export { default as fullStack } from '../assets/certificados/certificado-fullstack.png';
-export { default as ifrn } from '../assets/certificados/certificado-IFRN.png';
+export { default as fullStack } from '../assets/certificados/devclub/fullstack-frente.png';
+export { default as ifrn } from '../assets/certificados/ifrn/ifrn-frente.png'
 export { default as zero } from '../assets/certificados/certificado-inicial.png';
 
 
