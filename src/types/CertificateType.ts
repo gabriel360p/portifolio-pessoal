@@ -5,6 +5,7 @@ export interface Certificate {
     school?: string;
     photo: string;
     photoCollection?: string[];
+    skills?: string;
     description: string;
     duration?: string;
     status: boolean;

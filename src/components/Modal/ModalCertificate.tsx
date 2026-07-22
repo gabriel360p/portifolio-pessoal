@@ -2,6 +2,7 @@
 import { CodeIcon, DownloadIcon, FileIcon, MedalIcon } from "@phosphor-icons/react";
 import type { Certificate } from "../../types/CertificateType"
 import { Carrousel } from "../Carrousel";
+import { Badge } from "../Badge";
 
 interface ModalCertificateProps {
     certificate: Certificate;
@@ -35,9 +36,21 @@ export function ModalCertificate({ certificate }: ModalCertificateProps) {
 
                 <p className="text-white mt-1">{certificate.description}</p>
 
-                <div className="flex gap-2 mt-4 text-text-primary justify-start items-center">
-                    <CodeIcon className="" />
-                    <p>Competências desenvolvidas</p>
+                <div className="flex flex-col gap-2 mt-4 text-text-primary justify-center items-start">
+
+                    <div className="flex items-center gap-2">
+                        <CodeIcon className="" />
+                        <p>Competências desenvolvidas</p>
+                    </div>
+
+                    <div className="flex flex-row flex-wrap gap-y-2">
+                        {
+                            //separando na própria array, usando o ',' como medidor
+                            certificate.skills?.split(',').map(skil => (
+                                <Badge key={skil} title={skil} />
+                            ))
+                        }
+                    </div>
                 </div>
 
             </div>

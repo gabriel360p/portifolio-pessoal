@@ -194,7 +194,7 @@ function App() {
 										<InstagramLogoIcon size={32} className="hero-icons-contact" />
 									</a>
 									<a
-										href="mailto:seuemail@gmail.com?subject=Solicitação%20de%20Projeto%20Web&body=Olá%20Gabriel,%0D%0A%0D%0AConheci%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.%0D%0A%0D%0ADescrição%20do%20projeto:%20%0D%0A%0D%0APrazo:%20%0D%0AOrçamento%20estimado:%20"
+										href="mailto:gabrielcostasilva2710@gmail.com?subject=Solicitação%20de%20Projeto%20Web&body=Olá%20Gabriel,%0D%0A%0D%0AConheci%20seu%20portfólio%20e%20gostaria%20de%20conversar%20sobre%20um%20projeto.%0D%0A%0D%0ADescrição%20do%20projeto:%20%0D%0A%0D%0APrazo:%20%0D%0AOrçamento%20estimado:%20"
 										rel="noopener noreferrer"
 										target="_blank"
 									>
@@ -626,16 +626,13 @@ function App() {
 					{/* Aqui nós vamos montar a estrutura base do modal */}
 					<div
 						className='
-					flex flex-col
-					px-3 py-4
-					w-[80%] max-w-200 h-fit
-					backdrop-blur-md bg-bg-card/90 border border-text-secundary rounded-xl
-					'
+							flex flex-col
+							px-3 py-4
+							w-[80%] max-w-200 h-fit
+							backdrop-blur-md bg-bg-card/90 border border-text-secundary rounded-xl
+							'
 					>
 						<div className='flex items-center justify-end w-full'>
-							{/* <div>
-								<h2 className='font-bold'>{modalData.title}</h2>
-							</div> */}
 							<div>
 								<XIcon onClick={() => { handleModal(false) }} className='
 								active:scale-125 
@@ -643,6 +640,7 @@ function App() {
 								text-text-primary' size={20} />
 							</div>
 						</div>
+
 						<div className='w-full h-full'>
 							{/* Content, onde vai ficar o conteúdo do modal */}
 							<Modal data={modalData} />

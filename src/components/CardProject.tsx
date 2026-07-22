@@ -26,7 +26,7 @@ export function CardProject({
 		>
 			<div>
 				{/** biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-			<img onClick={onClick} src={project.photo} className="object-cover w-auto rounded-xl" alt={`foto do projeto ${project.title}`} />
+				<img onClick={onClick} src={project.photo} className="object-cover w-auto rounded-xl" alt={`foto do projeto ${project.title}`} />
 			</div>
 			<div className="flex flex-col gap-4 p-2 mt-2">
 				<h2 className="font-bold">{project.title}</h2>
@@ -41,9 +41,9 @@ export function CardProject({
 				</div>
 			</div>
 			<div className="p-2">
-				{project.status?(
+				{project.status ? (
 					<span className="mx-1 rounded px-1 py-0.5 text-black bg-green-600">Projeto finalizado</span>
-				):(
+				) : (
 					<span className="mx-1 rounded px-1 py-0.5 text-black bg-amber-300">Projeto em andamento</span>
 				)}
 			</div>
