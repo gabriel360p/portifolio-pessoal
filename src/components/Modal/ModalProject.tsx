@@ -125,8 +125,8 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                 <div className="
                     flex items-center gap-2  
                     justify-center button-normal
-                    w-fit
                     cursor-pointer
+                    w-fit
                     h-fit
                 "
                     onClick={() => { redirectHREF(projeto.github, true) }}
@@ -138,9 +138,9 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                 <div className="
                     flex items-center gap-2  
                     justify-center button-outline
-                    w-full
                     cursor-pointer
-                    md:w-fit
+                    w-fit
+                    h-fit
                 "
                     onClick={() => { redirectHREF(projeto.demo, true) }}
                 >
