@@ -4,11 +4,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
 import { Autoplay, Pagination } from 'swiper/modules';
+import { useState } from 'react';
+import { SpinnerIcon } from '@phosphor-icons/react';
 
 interface CarrouselProps {
     photosCollection?: string[];
 }
 export function Carrousel({ photosCollection }: CarrouselProps) {
+    const [loading, setLoading] = useState<boolean>(true);
+
     return (
         <Swiper
             spaceBetween={50}
@@ -20,8 +24,18 @@ export function Carrousel({ photosCollection }: CarrouselProps) {
         >
             {photosCollection?.map(photo => (
                 <SwiperSlide>
-                    <div className='flex justify-center items-center'>
-                        <img src={photo} alt="foto-não-encontrada" className='object-cover min-w-65 max-w-120 h-auto' />
+                    <div className={`flex justify-center items-center
+                        ${(loading) || (photosCollection === undefined) ? `
+                            h-40
+                            md:h-80
+                        `: ``}
+                        `}>
+                        <img onLoad={() => setLoading(false)} src={photo} alt="foto-não-encontrada" className='object-cover min-w-65 max-w-120 h-auto' />
+                        {(loading) || (photosCollection === undefined) ? (
+                            <div className="flex w-full h-full items-center justify-center">
+                                <SpinnerIcon size={30} className="text-text-primary animate-spin" />
+                            </div>
+                        ) : ""}
                     </div>
                 </SwiperSlide>
             ))}

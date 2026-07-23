@@ -5,14 +5,15 @@ import {
 	CodeIcon,
 	CurrencyCircleDollarIcon,
 	EnvelopeSimpleIcon,
-	FileTextIcon,
 	GithubLogoIcon,
 	GlobeIcon,
 	GpsIcon,
 	GreaterThanIcon,
 	InstagramLogoIcon,
 	LinkedinLogoIcon,
+	MinusIcon,
 	MonitorIcon,
+	PlusIcon,
 	RocketLaunchIcon,
 	ShoppingCartIcon,
 	StudentIcon,
@@ -20,7 +21,7 @@ import {
 } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
 import profile from '../assets/foto-profissional-removebg-preview.png';
-import { Button } from '../components/Button';
+// import { Button } from '../components/Button';
 import { CardAbout } from '../components/CardAbout';
 import { CardCertificado } from '../components/CardCertificado';
 import { CardTecnolgies } from '../components/CardTecnologies';
@@ -467,17 +468,22 @@ function App() {
 								))
 							}
 						</div>
-						<div>
-							<Button
-								personalize="
-										text-bg-indigo-variant			
+						<div onClick={() => {
+							handleShowCertifcates();
+						}} className='flex  cursor-pointer fle-row gap-2 justify-center items-center button-outline '>
+							{showCertifcates ? (
+								<MinusIcon size={20} />
+							) : (
+								<PlusIcon size={20} />
+							)}
+
+							<span
+								className="
 									"
-								variant="outline"
-								title={`${showCertifcates ? 'Ver menos' : 'Ver mais'}`}
-								onclick={() => {
-									handleShowCertifcates();
-								}}
-							/>
+
+							>
+								{`${showCertifcates ? 'Ver menos' : 'Ver mais'}`}
+							</span>
 						</div>
 					</section>
 					{/* FIM DE MINHAS CERTIFICAÇÕES */}
@@ -524,16 +530,23 @@ function App() {
 									))
 								}
 							</div>
-							<Button
-								personalize="
-									text-bg-indigo-variant			
-									"
-								variant="outline"
-								title={`${showProjects ? 'Ver menos' : 'Ver mais'}`}
-								onclick={() => {
-									handleShowProjects();
-								}} />
+							<div onClick={() => {
+								handleShowProjects();
+							}} className='flex fle-row cursor-pointer gap-2 justify-center items-center button-outline '>
+								{showProjects ? (
+									<MinusIcon size={20} />
+								) : (
+									<PlusIcon size={20} />
+								)}
 
+								<span
+									className="
+										cursor-pointer			
+									"
+								>
+									{`${showProjects ? 'Ver menos' : 'Ver mais'}`}
+								</span>
+							</div>
 						</div>
 					</section>
 					{/* FIM DE MEUS PROJETOS */}
@@ -616,8 +629,17 @@ function App() {
 							</div>
 
 							<div className='flex flex-col justify-center items-center gap-2'>
-								<button onClick={() => { sendMessage(verProjetos) }} type="button" className='button-normal'>Falar no Whatsapp</button>
-								<button onClick={() => { sendMessage(solicitarOrcamento) }} type="button" className='button-outline'>Solicitar orçamento</button>
+
+								<div onClick={() => { sendMessage(verProjetos) }} className='flex gap-2 button-normal cursor-pointer justify-center items-center'>
+									<WhatsappLogoIcon size={24} />
+									<span>Falar no Whatsapp</span>
+								</div>
+								<div onClick={() => { sendMessage(solicitarOrcamento) }} className='flex cursor-pointer gap-2 button-outline justify-center items-center'>
+									<CurrencyCircleDollarIcon size={24} />
+									<span >Solicitar orçamento</span>
+								</div>
+
+								{/* <span onClick={() => { sendMessage(solicitarOrcamento) }} className='button-outline'>Solicitar orçamento</span> */}
 							</div>
 
 						</div>

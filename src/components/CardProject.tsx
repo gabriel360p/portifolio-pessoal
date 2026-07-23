@@ -1,5 +1,8 @@
+import { ArrowRightIcon, GithubLogoIcon, SpinnerIcon } from "@phosphor-icons/react";
 import type { Project } from "../types/ProjectsType";
 import { Badge } from "./Badge";
+import { redirectHREF } from "../utils/RedirectHREF";
+import { useState } from "react";
 
 interface CardProjectsProps {
 	project: Project
@@ -12,6 +15,8 @@ export function CardProject({
 	custom,
 	onClick,
 }: CardProjectsProps) {
+	const [loading, setLoading] = useState<boolean>(true);
+
 	return (
 		<div className={`
 			${custom}
@@ -24,9 +29,22 @@ export function CardProject({
 			bg-bg-card/10 border border-text-secundary rounded-xl
 		`}
 		>
-			<div>
+			<div
+				onClick={onClick}
+				className={`
+					${(loading) || (project.photo === undefined) ? `
+						h-35
+					`: ``}
+				`}
+			>
 				{/** biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-				<img onClick={onClick} src={project.photo} className="object-cover w-auto rounded-xl" alt={`foto do projeto ${project.title}`} />
+				<img onLoad={() => setLoading(false)} src={project.photo} className="object-cover w-auto rounded-xl" />
+
+				{(loading) || (project.photo === undefined) ? (
+					<div className="flex w-full h-full items-center justify-center">
+						<SpinnerIcon size={30} className="text-text-primary animate-spin" />
+					</div>
+				) : ""}
 			</div>
 			<div className="flex flex-col gap-4 p-2 mt-2">
 				<h2 className="font-bold">{project.title}</h2>
@@ -48,8 +66,34 @@ export function CardProject({
 				)}
 			</div>
 			<div className="flex gap-4 p-2">
-				<a className="button-normal" href={project.demo} target="_blank" rel="noopener">Demo</a>
-				<a className="button-outline" href={project.github} target="_blank" rel="noopener">Github</a>
+				<div className="
+                    flex items-center gap-2  
+                    justify-center button-normal
+					w-fit
+					cursor-pointer
+					h-fit
+                "
+					onClick={() => { redirectHREF(project.github, true) }}
+				>
+					<GithubLogoIcon size={25} />
+					<span>GitHub</span>
+				</div>
+
+				<div className="
+                    flex items-center gap-2  
+                    justify-center button-outline
+					w-fit
+					h-fit
+					cursor-pointer
+                "
+					onClick={() => { redirectHREF(project.demo, true) }}
+				>
+					<span>Demo</span>
+					<ArrowRightIcon size={25} />
+				</div>
+
+
+
 			</div>
 		</div>
 	);

@@ -3,6 +3,7 @@ import type { Project } from "../../types/ProjectsType";
 import { Badge } from "../Badge";
 import { Carrousel } from "../Carrousel";
 import { LightningIcon } from "@phosphor-icons/react/dist/ssr";
+import { redirectHREF } from "../../utils/RedirectHREF";
 
 interface ModalCeProjectProps {
     projeto: Project;
@@ -124,20 +125,26 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                 <div className="
                     flex items-center gap-2  
                     justify-center button-normal
-                    w-full
-                    md:w-fit
-                ">
+                    w-fit
+                    cursor-pointer
+                    h-fit
+                "
+                    onClick={() => { redirectHREF(projeto.github, true) }}
+                >
                     <GithubLogoIcon size={25} />
-                    <a href={`${projeto.github}`} className="">Repositório GitHub</a>
+                    <span>Repositório GitHub</span>
                 </div>
 
                 <div className="
                     flex items-center gap-2  
                     justify-center button-outline
                     w-full
+                    cursor-pointer
                     md:w-fit
-                ">
-                    <a href={`${projeto.demo}`} className="">Demonstração</a>
+                "
+                    onClick={() => { redirectHREF(projeto.demo, true) }}
+                >
+                    <span>Demonstração</span>
                     <ArrowRightIcon size={25} />
                 </div>
 
