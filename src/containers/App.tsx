@@ -2,7 +2,10 @@ import {
 	BriefcaseIcon,
 	CheckCircleIcon,
 	ClockIcon,
+	CodeIcon,
+	CurrencyCircleDollarIcon,
 	EnvelopeSimpleIcon,
+	FileTextIcon,
 	GithubLogoIcon,
 	GlobeIcon,
 	GpsIcon,
@@ -159,10 +162,19 @@ function App() {
 								</div>
 
 								<div className="flex gap-3 justify-center lg:justify-start">
-									<a href="#projetos" className='button-normal'>
-										Ver Projetos
-									</a>
-									<button type='button' className='button-outline' onClick={() => { sendMessage(solicitarOrcamento) }}>Solicitar orçamento</button>
+
+									<div className='flex cursor-pointer button-normal gap-2 justify-center items-center'>
+										<CodeIcon size={20} />
+										<a href="#projetos" className=''>
+											Ver Projetos
+										</a>
+									</div>
+
+									<div onClick={() => { sendMessage(solicitarOrcamento) }} className='flex button-outline cursor-pointer gap-2 justify-center items-center'>
+										<CurrencyCircleDollarIcon size={20} />
+										<span>Solicitar orçamento</span>
+									</div>
+
 								</div>
 
 								<div className="flex flex-row gap-6 justify-center mt-4 lg:justify-start">
