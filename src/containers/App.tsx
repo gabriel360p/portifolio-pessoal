@@ -627,7 +627,7 @@ function App() {
 					<div
 						className='
 							flex flex-col
-							px-3 py-4
+							px-3 py-2
 							w-[80%] max-w-200 h-fit
 							backdrop-blur-md bg-bg-card/90 border border-text-secundary rounded-xl
 							'
@@ -641,7 +641,10 @@ function App() {
 							</div>
 						</div>
 
-						<div className='w-full h-full'>
+						<div className='
+							w-full 
+							max-h-[90vh] overflow-y-auto
+						'>
 							{/* Content, onde vai ficar o conteúdo do modal */}
 							<Modal data={modalData} />
 						</div>
