@@ -9,6 +9,8 @@ export interface Project {
     github?: string;
     badge?: string;
     duration?: string;
+    functions?: string[];
+    desafios?: string;
     status: boolean;
     discriminator: string;
 }
