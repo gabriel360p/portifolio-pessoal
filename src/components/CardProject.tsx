@@ -38,7 +38,7 @@ export function CardProject({
 				`}
 			>
 				{/** biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-				<img onLoad={() => setLoading(false)} src={project.photo} className="cursor-pointer object-cover w-auto rounded-xl" />
+				<img onLoad={() => setLoading(false)} src={project.photo} className="cursor-pointer object-cover w-auto h-40 rounded-xl" />
 
 				{(loading) || (project.photo === undefined) ? (
 					<div className="flex w-full h-full items-center justify-center">

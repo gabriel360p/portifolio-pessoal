@@ -19,6 +19,9 @@ import {
 	StudentIcon,
 	WhatsappLogoIcon,
 } from '@phosphor-icons/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+
 import { useEffect, useState } from 'react';
 import profile from '../assets/foto-profissional-removebg-preview.png';
 // import { Button } from '../components/Button';
@@ -51,6 +54,7 @@ import type { Certificate } from '../types/CertificateType';
 import { Modal } from '../components/Modal/Modal';
 import { certificados } from '../services/CertificatesService';
 import { XIcon } from '@phosphor-icons/react/dist/ssr';
+// import { ProjectCarrousel } from '../components/Carrousel/ProjectCarrousel';
 
 function App() {
 	const [showCertifcates, setShowCertifcates] = useState<boolean>(false);
@@ -502,65 +506,69 @@ function App() {
 
 
 				<FadeInSection>
-					{/* MEUS PROJETOS */}
-					<section id='projetos'
+					<section
+						id="projetos"
 						className="
-							flex
-							flex-col
-							section-anchor
-							gap-4
-							items-center
-							justify-center
-							mt-9
-							p-5
-							w-[90%]
-							bg-bg-panel/10
-							backdrop-blur-md
-							border
-							border-text-secundary
-							rounded
-						"
+			flex
+			flex-col
+			section-anchor
+			gap-4
+			items-center
+			justify-center
+			mt-9
+			p-5
+			w-[90%]
+			bg-bg-panel/10
+			backdrop-blur-md
+			border
+			border-text-secundary
+			rounded
+		"
 					>
 						<div className="text-center">
-							<p className="font-extrabold text-text-primary">PROJETOS</p>
+							<p className="font-extrabold text-text-primary">
+								PROJETOS
+							</p>
+
 							<h1 className="font-extrabold text-white">
 								Meus últimos projetos
 							</h1>
 						</div>
 
-						<div className='flex flex-col justify-center items-center'>
-							<div className='flex flex-wrap gap-x-10 gap-y-4 items-center justify-center mb-6'>
-								{firstProject?.map((project) => (
-									<CardProject key={project.id} project={project} onClick={() => { handleModal(true, project) }} />
-								))
-								}
-
-								{showProjects &&
-									restProject?.map((project) => (
-										<CardProject key={project.id} project={project} onClick={() => { handleModal(true, project) }} />
-									))
-								}
-							</div>
-							<div onClick={() => {
-								handleShowProjects();
-							}} className='flex fle-row cursor-pointer gap-2 justify-center items-center button-outline '>
-								{showProjects ? (
-									<MinusIcon size={20} />
-								) : (
-									<PlusIcon size={20} />
-								)}
-
-								<span
-									className="
-										cursor-pointer			
-									"
-								>
-									{`${showProjects ? 'Ver menos' : 'Ver mais'}`}
-								</span>
-							</div>
+						<div className="w-full px-4">
+							<Swiper
+								modules={[Pagination]}
+								breakpoints={{
+									0: {
+										slidesPerView: 1,
+									},
+									768: {
+										slidesPerView: 2,
+									},
+									1024: {
+										slidesPerView: 3,
+									},
+									1440: {
+										slidesPerView: 4,
+									},
+								}}
+								// spaceBetween={ }
+								pagination={{ clickable: true }}
+								className="w-full"
+							>
+								{projects?.map((project) => (
+									<SwiperSlide key={project.id}>
+										<div className="flex justify-center">
+											<CardProject
+												project={project}
+												onClick={() => handleModal(true, project)}
+											/>
+										</div>
+									</SwiperSlide>
+								))}
+							</Swiper>
 						</div>
 					</section>
-					{/* FIM DE MEUS PROJETOS */}
 				</FadeInSection>
 
 				<FadeInSection>
