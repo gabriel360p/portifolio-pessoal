@@ -37,6 +37,7 @@ export function CardCertificado({
 			<div
 				onClick={onClick}
 				className={`
+					cursor-pointer
 					${(loading) || (certificado.photo === undefined) ? `
 						h-35
 					`: ``}
