@@ -426,6 +426,17 @@ function App() {
 								figure_path={tailwindLogo}
 								link="https://tailwindcss.com/"
 							/>
+							{/* <CardTecnolgies
+								title="Styled Components"
+								figure_path={tailwindLogo}
+								link="https://tailwindcss.com/"
+							/>
+							<CardTecnolgies
+								title="Axios"
+								figure_path={tailwindLogo}
+								link="https://tailwindcss.com/"
+							/> */}
+
 						</div>
 					</section>
 					{/* FIM TECNOLIGIAS QUE UTILIZO */}

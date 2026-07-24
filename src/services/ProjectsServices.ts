@@ -1,5 +1,5 @@
 import type { Project } from "../types/ProjectsType";
-import { cep, clima, pesquisarPerfilGithub, photosAdvogado, photosAutocenter, photosBelezza, photosCep, photosClima, photosClinicaNutricao, photosConsultorioOdonto, photosEliteFitness, photosGerador, photosHair, photosPatinhas, photosPesquisarPerfilGithub, photosTopDog, topdog } from "../utils/ProjetosExport";
+import { cep, clima, pesquisarPerfilGithub, photosAdvogado, photosAutocenter, photosBelezza, photosCep, photosClima, photosClinicaNutricao, photosConsultorioOdonto, photosEliteFitness, photosGerador, photosHair, photosPatinhas, photosPesquisarPerfilGithub, photosTopDog } from "../utils/ProjetosExport";
 import { gerador } from "../utils/ProjetosExport";
 
 export const projects: Project[] =
