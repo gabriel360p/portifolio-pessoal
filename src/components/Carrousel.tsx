@@ -22,7 +22,7 @@ export function Carrousel({ photosCollection }: CarrouselProps) {
         // onSlideChange={() => console.log('slide change')}
         // onSwiper={(swiper) => console.log(swiper)}
         >
-            {photosCollection?.map(photo => (
+            {photosCollection?.map(photoIndex => (
                 <SwiperSlide>
                     <div className={`flex justify-center items-center
                         ${(loading) || (photosCollection === undefined) ? `
@@ -30,7 +30,7 @@ export function Carrousel({ photosCollection }: CarrouselProps) {
                             md:h-80
                         `: ``}
                         `}>
-                        <img onLoad={() => setLoading(false)} src={photo} alt="foto-não-encontrada" className='object-cover min-w-65 max-w-110 h-auto' />
+                        <img onLoad={() => setLoading(false)} src={photoIndex} alt="foto-não-encontrada" className='object-cover min-w-65 max-w-110 h-auto' />
                         {(loading) || (photosCollection === undefined) ? (
                             <div className="flex w-full h-full items-center justify-center">
                                 <SpinnerIcon size={30} className="text-text-primary animate-spin" />
