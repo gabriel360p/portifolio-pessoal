@@ -661,7 +661,7 @@ function App() {
 					<div
 						className='
 							flex flex-col
-							px-3 py-2
+							px-3 py-3
 							w-[80%] max-w-200 h-fit
 							backdrop-blur-md bg-bg-card/90 border border-text-secundary rounded-xl
 							'
@@ -671,7 +671,7 @@ function App() {
 								<XIcon onClick={() => { handleModal(false) }} className='
 								active:scale-125 
 								hover:scale-125 
-								text-text-primary' size={20} />
+								text-text-primary' size={22} />
 							</div>
 						</div>
 
