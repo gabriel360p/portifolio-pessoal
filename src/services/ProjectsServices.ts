@@ -63,7 +63,7 @@ export const projects: Project[] =
             photo: photosAutocenter[0],
             photoCollection: photosAutocenter,
             description: "Projeto construído a partir de um template fornecido para estudos. Meu objetivo foi transformar o layout em uma página totalmente funcional, aplicando boas práticas de front-end, responsividade e otimização da interação do usuário.",
-            demo: "https://vercel.com/gabriel360ps-projects/demo-auto-center-premium",
+            demo: "https://demo-auto-center-premium.vercel.app/",
             github: "https://github.com/gabriel360p/demo-auto-center-premium.git",
             badge: "Javascript,CSS,HTML",
             // duration: "",
