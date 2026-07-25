@@ -26,7 +26,7 @@ export function CardCertificado({
 			flex flex-col items-center 
 			w-65
 			sm:w-49
-			md:w-50
+			md:w-55
 			bg-bg-card/10
 			backdrop-blur-md
 			border border-text-secundary

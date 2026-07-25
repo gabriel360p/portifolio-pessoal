@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme{
+
+
       --animate-surge: surge 1s ease-in-out;
     @keyframes surge {
         0%{
@@ -37,21 +39,25 @@
         }
     }
 
+
+    --animate-mini-glow:glow 3s ease-in-out infinite alternate;
+
+    @keyframes glow{
+        from{
+            filter:drop-shadow( rgba(18, 205, 80, 0) 0px 3px 0px);
+        }
+        to{
+            filter:drop-shadow(rgba(18, 205, 80, 0.50) 0px 3px 5px);
+        }
+    }
+
     --color-bg-default:#000405;
     --color-bg-panel:#040a0b;
     --color-bg-card:#030c0b;
     --color-text-primary:#12cd5b;
     --color-text-secundary:#0e1c16;
-    
-    /* --color-text-primary:#572f96; */
-    --color-bg-indigo:#3761da;
-    --color-bg-indigo-variant:#345fe9;
-    --color-bg-tecnologies-section:#f8f8fa
-
-    
-
-
 }
+
 html{
     @apply scroll-smooth
 }
@@ -123,7 +129,7 @@ a {
     border-none 
     rounded-md 
     bg-text-primary
-    py-[0.5rem] px-3 
+    py-2 px-3 
     text-bg-default
     hover:bg-text-primary/50    hover:text-white hover:scale-105
     active:bg-text-primary/50   active:text-white active:scale-105
@@ -150,6 +156,12 @@ a {
     cursor-pointer
 }
 
+.text-truncate{
+  display: -webkit-box;
+  -webkit-line-clamp:3;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
 
 @keyframes backgroundFade {
   from {

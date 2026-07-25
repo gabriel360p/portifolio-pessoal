@@ -46,9 +46,11 @@ export function CardProject({
 					</div>
 				) : ""}
 			</div>
-			<div className="flex flex-col gap-2 p-2 mt-1">
+			<div
+				onClick={onClick}
+				className="flex flex-col gap-2 p-2 mt-1 cursor-pointer">
 				<h2 className="font-bold">{project.title}</h2>
-				<p className="text-wrap">{project.description}</p>
+				<p className="text-wrap text-truncate">{project.description}</p>
 				<div className="flex flex-row flex-wrap mt-1 gap-y-2">
 					{
 						//separando na própria array, usando o ',' como medidor

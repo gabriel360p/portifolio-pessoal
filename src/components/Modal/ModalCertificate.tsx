@@ -30,17 +30,17 @@ export function ModalCertificate({ certificate }: ModalCertificateProps) {
                 </div>
 
                 <div className="flex gap-2 mt-4 text-text-primary justify-start items-center">
-                    <FileIcon />
+                    <FileIcon className="active:scale-110 hover:scale-110 text-text-primary" size={20} />
                     <p>Sobre o certificado</p>
                 </div>
 
-                <p className="text-white mt-1">{certificate.description}</p>
+                <h3 className="text-white mt-1">{certificate.description}</h3>
 
                 <div className="flex flex-col gap-2 mt-4 text-text-primary justify-center items-start">
 
                     <div className="flex items-center gap-2">
-                        <CodeIcon className="" />
-                        <p>Competências desenvolvidas</p>
+                        <CodeIcon className="active:scale-110 hover:scale-110 text-text-primary" size={20} />
+                        <h3>Competências desenvolvidas</h3>
                     </div>
 
                     <div className="flex flex-row flex-wrap gap-y-2">
@@ -54,13 +54,6 @@ export function ModalCertificate({ certificate }: ModalCertificateProps) {
                 </div>
 
             </div>
-
-            {/* <div className="flex text-text-primary active:text-black hover:text-black w-full justify-center items-center">
-                <a className="flex flex-row gap-3 justify-center items-center button-outline w-full md:max-w-[80%]" href="/" aria-disabled>
-                    <DownloadIcon className="" size={20} />
-                    Baixar Certificado
-                </a>
-            </div> */}
 
         </div>
     )

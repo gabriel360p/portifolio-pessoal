@@ -19,9 +19,9 @@ export function HelpCard({ custom, title, icon, description }: HelpCardProps) {
                 bg-bg-card/10
 				backdrop-blur-md
                 w-full
-                md:max-w-[280px]
+                md:max-w-70
                 flex h-35 justify-center items-center
-                gap-3 rounded-2xl border-[#0e1c16]
+                gap-3 rounded-2xl border-text-secundary
                 px-4`}
 		>
 			<div className="flex justify-center items-center h-full w-15">

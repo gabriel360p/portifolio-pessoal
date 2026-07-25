@@ -9,7 +9,7 @@ interface ModalCeProjectProps {
     projeto: Project;
 }
 export function ModalProject({ projeto }: ModalCeProjectProps) {
-    console.log(projeto)
+    // console.log(projeto)
     return (
         <div className="flex flex-col gap-8 pb-4">
 

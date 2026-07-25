@@ -19,8 +19,6 @@ export function Carrousel({ photosCollection }: CarrouselProps) {
             slidesPerView={1}
             modules={[Autoplay, Pagination]}
             autoplay={true}
-        // onSlideChange={() => console.log('slide change')}
-        // onSwiper={(swiper) => console.log(swiper)}
         >
             {photosCollection?.map(photoIndex => (
                 <SwiperSlide>

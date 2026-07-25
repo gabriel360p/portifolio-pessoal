@@ -19,15 +19,9 @@ export function Modal({ data }: ModalProps) {
             return (
                 <ModalProject projeto={data} />
             )
-    
+
         default:
             console.error("Falha na renderização do modal, tipo de modal não reconhecido")
             break;
     }
 }
-// O que colocar no modal:
-// Objetivo
-// Tecnologias
-// Principais funcionalidades
-// Desafios enfrentados
-// Aprendizados

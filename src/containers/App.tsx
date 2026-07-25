@@ -11,20 +11,18 @@ import {
 	GreaterThanIcon,
 	InstagramLogoIcon,
 	LinkedinLogoIcon,
-	MinusIcon,
 	MonitorIcon,
-	PlusIcon,
 	RocketLaunchIcon,
 	ShoppingCartIcon,
 	StudentIcon,
 	WhatsappLogoIcon,
 } from '@phosphor-icons/react';
+
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Autoplay, Mousewheel } from 'swiper/modules';
 
 import { useEffect, useState } from 'react';
 import profile from '../assets/foto-profissional-removebg-preview.png';
-// import { Button } from '../components/Button';
 import { CardAbout } from '../components/CardAbout';
 import { CardCertificado } from '../components/CardCertificado';
 import { CardTecnolgies } from '../components/CardTecnologies';
@@ -41,7 +39,7 @@ import {
 	tsLogo,
 } from '../utils/FerramentasIconsExport';
 import { CardProject } from '../components/CardProject';
-import { projects } from '../services/ProjectsServices';
+import { projects as projetos } from '../services/ProjectsServices';
 import { CardWork } from '../components/CardWork';
 import { Footer } from '../components/Footer';
 import type { Project } from '../types/ProjectsType';
@@ -52,21 +50,13 @@ import { sendMessage } from '../utils/MandarMensagem';
 import { randomMessage } from '../utils/EasterEgg';
 import type { Certificate } from '../types/CertificateType';
 import { Modal } from '../components/Modal/Modal';
-import { certificados } from '../services/CertificatesService';
+import { certificados as certificates } from '../services/CertificatesService';
 import { XIcon } from '@phosphor-icons/react/dist/ssr';
-// import { ProjectCarrousel } from '../components/Carrousel/ProjectCarrousel';
 
 function App() {
-	const [showCertifcates, setShowCertifcates] = useState<boolean>(false);
 	const [easterEgg, setEasterEgg] = useState<boolean>(false);
-	const [showProjects, setShowProjects] = useState<boolean>(false);
-
-	const [firstProject, setFirstProject] = useState<Project[]>();
-	const [restProject, setRestProject] = useState<Project[]>();
-
-	const [firstCertificate, setFirstCertificate] = useState<Certificate[]>();
-	const [restCertificate, setRestCertificate] = useState<Certificate[]>();
-
+	const [projects, setProjects] = useState<Project[]>();
+	const [certificados, setCertificados] = useState<Certificate[]>();
 	const [modalState, setModalState] = useState<boolean>(false);
 	const [modalData, setModalData] = useState<Project | Certificate | undefined>();
 
@@ -96,10 +86,6 @@ function App() {
 		}, 20000)
 	}
 
-	function handleShowProjects() {
-		setShowProjects(!showProjects);
-	}
-
 	function handleModal(state: boolean, data?: Project | Certificate) {
 		//Controlando tudo em uma única função!
 		setModalState(state);
@@ -107,15 +93,9 @@ function App() {
 		else setModalData(undefined)
 	}
 
-	function handleShowCertifcates() {
-		setShowCertifcates(!showCertifcates);
-	}
 	useEffect(() => {
-		setFirstProject(projects.slice(0, 4))
-		setRestProject(projects.slice(4))
-
-		setFirstCertificate(certificados.slice(0, 5))
-		setRestCertificate(certificados.slice(5))
+		setProjects(projetos)
+		setCertificados(certificates)
 	}, [])
 
 	return (
@@ -227,7 +207,6 @@ function App() {
 									alt="foto-pessoal"
 									className={`
 									object-center 
-									
 									drop-shadow-sm drop-shadow-text-primary/40
 									hover:drop-shadow-md hover:drop-shadow-text-primary hover:scale-105
 									${easterEgg ? 'animate-spin' : ''}
@@ -430,16 +409,6 @@ function App() {
 								figure_path={tailwindLogo}
 								link="https://tailwindcss.com/"
 							/>
-							{/* <CardTecnolgies
-								title="Styled Components"
-								figure_path={tailwindLogo}
-								link="https://tailwindcss.com/"
-							/>
-							<CardTecnolgies
-								title="Axios"
-								figure_path={tailwindLogo}
-								link="https://tailwindcss.com/"
-							/> */}
 
 						</div>
 					</section>
@@ -471,59 +440,65 @@ function App() {
 							<h1 className="font-extrabold text-white">Certificados</h1>
 						</div>
 
-						<div className="flex flex-wrap gap-x-4 gap-y-4 items-center justify-center lg:gap-x-6 xl:gap-x-8">
-							{firstCertificate?.map((curso) => (
-								<CardCertificado key={curso.id} certificado={curso} onClick={() => { handleModal(true, curso) }} />
-							))
-							}
-
-							{showCertifcates &&
-								restCertificate?.map((curso) => (
-									<CardCertificado key={curso.id} certificado={curso} onClick={() => { handleModal(true, curso) }} />
-								))
-							}
-						</div>
-						<div onClick={() => {
-							handleShowCertifcates();
-						}} className='flex  cursor-pointer fle-row gap-2 justify-center items-center button-outline '>
-							{showCertifcates ? (
-								<MinusIcon size={20} />
-							) : (
-								<PlusIcon size={20} />
-							)}
-
-							<span
-								className="
-									"
-
+						<div className='flex w-full justify-center items-center'>
+							<Swiper
+								modules={[Autoplay, Mousewheel]}
+								autoplay
+								mousewheel
+								breakpoints={{
+									0: {
+										slidesPerView: 1,
+									},
+									650: {
+										slidesPerView: 2,
+									},
+									768: {
+										slidesPerView: 3,
+									},
+									1024: {
+										slidesPerView: 4,
+									},
+									1440: {
+										slidesPerView: 5,
+									},
+								}}
+								className="w-full"
 							>
-								{`${showCertifcates ? 'Ver menos' : 'Ver mais'}`}
-							</span>
+								{certificados?.map(curso => (
+									<SwiperSlide key={curso.id} >
+										<div className='flex justify-center items-center p-2'>
+											<CardCertificado certificado={curso} onClick={() => { handleModal(true, curso) }} />
+										</div>
+									</SwiperSlide>
+
+								))}
+
+							</Swiper>
 						</div>
-					</section>
+
+					</section >
 					{/* FIM DE MINHAS CERTIFICAÇÕES */}
-				</FadeInSection>
+				</FadeInSection >
 
 
 				<FadeInSection>
-					<section
-						id="projetos"
+					<section id="projetos"
 						className="
-			flex
-			flex-col
-			section-anchor
-			gap-4
-			items-center
-			justify-center
-			mt-9
-			p-5
-			w-[90%]
-			bg-bg-panel/10
-			backdrop-blur-md
-			border
-			border-text-secundary
-			rounded
-		"
+							flex
+							flex-col
+							section-anchor
+							gap-4
+							items-center
+							justify-center
+							mt-9
+							p-5
+							w-[90%]
+							bg-bg-panel/10
+							backdrop-blur-md
+							border
+							border-text-secundary
+							rounded
+						"
 					>
 						<div className="text-center">
 							<p className="font-extrabold text-text-primary">
@@ -537,7 +512,9 @@ function App() {
 
 						<div className="w-full px-4">
 							<Swiper
-								modules={[Pagination]}
+								modules={[Autoplay, Mousewheel]}
+								mousewheel
+								autoplay
 								breakpoints={{
 									0: {
 										slidesPerView: 1,
@@ -553,12 +530,11 @@ function App() {
 									},
 								}}
 								// spaceBetween={ }
-								pagination={{ clickable: true }}
 								className="w-full"
 							>
 								{projects?.map((project) => (
 									<SwiperSlide key={project.id}>
-										<div className="flex justify-center">
+										<div className="flex justify-center items-center p-2">
 											<CardProject
 												project={project}
 												onClick={() => handleModal(true, project)}
@@ -604,9 +580,6 @@ function App() {
 							<CardWork description='Código limpo, testes e foco em perfomance.' title='Desenvolvimento' number={3} />
 							<CardWork description='Entrega, ajustes e suporte vitalício.' title='Entrega e suporte' number={4} />
 						</div>
-
-
-						{/* <a className='button-outline' href='/'>Quero começar um novo projeto <ArrowRightIcon/></a> */}
 					</section>
 					{/* FIM DE FORMA DE TRABALHAR */}
 				</FadeInSection>
@@ -658,7 +631,6 @@ function App() {
 									<span >Solicitar orçamento</span>
 								</div>
 
-								{/* <span onClick={() => { sendMessage(solicitarOrcamento) }} className='button-outline'>Solicitar orçamento</span> */}
 							</div>
 
 						</div>
@@ -667,7 +639,7 @@ function App() {
 				</FadeInSection>
 
 				<Footer />
-			</main>
+			</main >
 
 			{modalState && modalData ? (
 				<div className={`
@@ -681,7 +653,7 @@ function App() {
 						className='
 							flex flex-col
 							px-3 py-3
-							w-[80%] max-w-200 h-fit
+							w-[80%] max-w-180 h-fit
 							backdrop-blur-md bg-bg-card/90 border border-text-secundary rounded-xl
 							'
 					>
@@ -706,8 +678,9 @@ function App() {
 
 
 				</div>
-			) : ("")}
-		</div>
+			) : ("")
+			}
+		</div >
 	);
 }
 
