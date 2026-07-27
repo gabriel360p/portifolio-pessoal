@@ -1,5 +1,5 @@
 import type { Project } from "../types/ProjectsType";
-import { cep, clima, pesquisarPerfilGithub, photosAdvogado, photosAutocenter, photosBelezza, photosCep, photosClima, photosClinicaNutricao, photosConsultorioOdonto, photosDB1, photosEliteFitness, photosGerador, photosHair, photosPatinhas, photosPesquisarPerfilGithub, photosTopDog } from "../utils/ProjetosExport";
+import { cep, clima, pesquisarPerfilGithub, photosAdvogado, photosAutocenter, photosBelezza, photosCep, photosClima, photosClinicaNutricao, photosConsultorioOdonto, photosDB1, photosDV, photosEliteFitness, photosGerador, photosHair, photosPatinhas, photosPesquisarPerfilGithub, photosTopDog } from "../utils/ProjetosExport";
 import { gerador } from "../utils/ProjetosExport";
 
 export const projects: Project[] =
@@ -17,6 +17,21 @@ export const projects: Project[] =
             status: false,
             functions: ['Mostrar produtos', 'Carrinho de compras', 'Gerar pedidos', 'Gerar comprovantes'],
             desafios: "O principal desafio deste projeto foi implementar a geração automática de PDFs para impressão dos comprovantes, garantindo que as informações de entrega e os detalhes dos pedidos fossem organizados de forma clara e adequada para o fluxo de trabalho da cozinha.",
+            discriminator: 'project',
+        },
+        {
+            id: "55",
+            title: "DevMovies",
+            photo: photosDV[0],
+            photoCollection: photosDV,
+            description: "O DevMovies é uma aplicação web desenvolvida para permitir que usuários explorem filmes e séries de forma intuitiva. Através do consumo de uma API externa, a plataforma exibe informações detalhadas como sinopses, avaliações, trailers e conteúdos relacionados, proporcionando uma experiência semelhante à de serviços de streaming.",
+            demo: "https://devflix-movies-series.vercel.app/",
+            github: "https://github.com/gabriel360p/devmovies.git",
+            badge: "React,Styled-Components,Axios,TMDB API",
+            // duration: "2 meses",
+            status: true,
+            functions: ['Listar Filmes', 'Listar Séries', 'Mostrar sinopses', 'Mostrar Trailers'],
+            desafios: "O principal desafio foi trabalhar com os dados retornados pela API, realizando o tratamento e a organização das informações para diferentes áreas da aplicação. Também foi necessário lidar com respostas variadas da API e garantir que os dados fossem exibidos de forma consistente e compreensível para o usuário.",
             discriminator: 'project',
         },
         {

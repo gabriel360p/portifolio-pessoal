@@ -70,7 +70,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                                 <StackIcon size={20} className="hover:scale-105 active:scale-105" />
                                 <h2>Tecnologias Utilizadas</h2>
                             </div>
-                            <div className="flex flex-row flex-wrap gap-y-1">
+                            <div className="flex flex-row flex-wrap gap-y-2">
                                 {
                                     //separando na própria array, usando o ',' como medidor
                                     projeto.badge?.split(',').map(badge => (
@@ -92,7 +92,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                             <div className="flex flex-col items-start justify-center pl-1.5">
                                 {
                                     projeto.functions?.map(func => (
-                                        <div className="flex items-center gap-2 justify-start">
+                                        <div key={func} className="flex items-center gap-2 justify-start">
                                             <CheckCircleIcon size={18} className="text-text-primary" />
                                             <p className="wrap-break-word">{func}</p>
                                         </div>
