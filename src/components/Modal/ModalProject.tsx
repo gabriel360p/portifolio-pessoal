@@ -70,7 +70,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                                 <StackIcon size={20} className="hover:scale-105 active:scale-105" />
                                 <h2>Tecnologias Utilizadas</h2>
                             </div>
-                            <div className="flex flex-row flex-wrap">
+                            <div className="flex flex-row flex-wrap gap-y-1">
                                 {
                                     //separando na própria array, usando o ',' como medidor
                                     projeto.badge?.split(',').map(badge => (

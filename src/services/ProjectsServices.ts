@@ -1,5 +1,5 @@
 import type { Project } from "../types/ProjectsType";
-import { cep, clima, pesquisarPerfilGithub, photosAdvogado, photosAutocenter, photosBelezza, photosCep, photosClima, photosClinicaNutricao, photosConsultorioOdonto, photosEliteFitness, photosGerador, photosHair, photosPatinhas, photosPesquisarPerfilGithub, photosTopDog } from "../utils/ProjetosExport";
+import { cep, clima, pesquisarPerfilGithub, photosAdvogado, photosAutocenter, photosBelezza, photosCep, photosClima, photosClinicaNutricao, photosConsultorioOdonto, photosDB1, photosEliteFitness, photosGerador, photosHair, photosPatinhas, photosPesquisarPerfilGithub, photosTopDog } from "../utils/ProjetosExport";
 import { gerador } from "../utils/ProjetosExport";
 
 export const projects: Project[] =
@@ -10,7 +10,7 @@ export const projects: Project[] =
             photo: photosTopDog[0],
             photoCollection: photosTopDog,
             description: "Sistema de gerenciamento de pedidos desenvolvido para a Top Dog, permitindo o recebimento, organização e acompanhamento de pedidos realizados pelos clientes. ",
-            demo: "",
+            demo: "https://hotdogueria-topdog.vercel.app/",
             github: "https://github.com/gabriel360p/topdog-frontend",
             badge: "React,TypeScript,Tailwind,Axios,Express",
             // duration: "2 meses",
@@ -262,4 +262,31 @@ export const projects: Project[] =
             status: true,
             discriminator: 'project',
         },
+        {
+            id: "12",
+            title: "DevBurguer 1.0",
+            photo: photosDB1[0],
+            photoCollection: photosDB1,
+            description: `
+                Esse projeto é uma versão muito simples de um e-commerce chamado DevBurguer, ele foi desenvolvido para revisar e exercitar algumas das principais 'Arrays Functions' do JavaScript.
+            `,
+            demo: "https://gabriel360p.github.io/projeto-devburguer/",
+            github: "https://github.com/gabriel360p/projeto-devburguer.git",
+            badge: "JavaScript Vanila, HTML, CSS",
+            duration: "1 dia",
+            functions: [
+                'Listar produtos',
+                'Pesquisar produtos',
+                'Carrinho de compras',
+                'Aplicar desconto no valor total',
+            ],
+            desafios: `
+            Os desafios que enfrentei todos geram em volta do mesmo problema, tornar a tela reativa sem precisar que a tela fosse recarregada, isso foi um grande desafio, o
+            gerenciamento de estados do React é um grande facilitador para tornar telas reativas.
+            `,
+            // desafios:``,
+            status: true,
+            discriminator: 'project',
+        },
+
     ]

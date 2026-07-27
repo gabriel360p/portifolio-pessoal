@@ -5,6 +5,14 @@ export { default as cep } from '../assets/projetos/busca-cep.png'
 export { default as pesquisarPerfilGithub } from '../assets/projetos/perfil-github.png'
 
 
+export const photosDB1: string[] = Object.values(import.meta.glob(
+    '../assets/projetos/devburguerv1/*.{png,jpg,jpeg,webp}',
+    {
+        eager: true,
+        import: 'default',
+    }
+))
+
 export const photosTopDog: string[] = Object.values(import.meta.glob(
     '../assets/projetos/topdog/*.{png,jpg,jpeg,webp}',
     {
