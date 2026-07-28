@@ -18,7 +18,6 @@ export function Carrousel({ photosCollection }: CarrouselProps) {
             spaceBetween={50}
             slidesPerView={1}
             modules={[Autoplay, Pagination]}
-            autoplay={true}
         >
             {photosCollection?.map(photoIndex => (
                 <SwiperSlide>

@@ -4,6 +4,33 @@ export { default as clima } from '../assets/projetos/clima.png'
 export { default as cep } from '../assets/projetos/busca-cep.png'
 export { default as pesquisarPerfilGithub } from '../assets/projetos/perfil-github.png'
 
+export const photosToDo: string[] = Object.values(import.meta.glob(
+    '../assets/projetos/todo/*.{png,jpg,jpeg,webp}',
+    {
+        eager: true,
+        import: 'default',
+    }
+))
+
+export const photosDEVBILLS: string[] = Object.values(import.meta.glob(
+    '../assets/projetos/devbills/*.{png,jpg,jpeg,webp}',
+    {
+        eager: true,
+        import: 'default',
+    }
+))
+
+
+export const photosNOTEs: string[] = Object.values(import.meta.glob(
+    '../assets/projetos/noteon/*.{png,jpg,jpeg,webp}',
+    {
+        eager: true,
+        import: 'default',
+    }
+))
+
+
+
 export const photosDV: string[] = Object.values(import.meta.glob(
     '../assets/projetos/devmovies/*.{png,jpg,jpeg,webp}',
     {
@@ -11,7 +38,6 @@ export const photosDV: string[] = Object.values(import.meta.glob(
         import: 'default',
     }
 ))
-
 
 
 export const photosDB1: string[] = Object.values(import.meta.glob(

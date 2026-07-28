@@ -514,7 +514,9 @@ function App() {
 							<Swiper
 								modules={[Autoplay, Mousewheel]}
 								mousewheel
-								autoplay
+								autoplay={{
+									delay: 8000,
+								}}
 								breakpoints={{
 									0: {
 										slidesPerView: 1,

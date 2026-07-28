@@ -1,5 +1,5 @@
 import type { Project } from "../types/ProjectsType";
-import { cep, clima, pesquisarPerfilGithub, photosAdvogado, photosAutocenter, photosBelezza, photosCep, photosClima, photosClinicaNutricao, photosConsultorioOdonto, photosDB1, photosDV, photosEliteFitness, photosGerador, photosHair, photosPatinhas, photosPesquisarPerfilGithub, photosTopDog } from "../utils/ProjetosExport";
+import { cep, clima, pesquisarPerfilGithub, photosAdvogado, photosAutocenter, photosBelezza, photosCep, photosClima, photosClinicaNutricao, photosConsultorioOdonto, photosDB1, photosDV, photosEliteFitness, photosGerador, photosHair, photosNOTEs, photosPatinhas, photosPesquisarPerfilGithub, photosToDo, photosTopDog } from "../utils/ProjetosExport";
 import { gerador } from "../utils/ProjetosExport";
 
 export const projects: Project[] =
@@ -303,5 +303,54 @@ export const projects: Project[] =
             status: true,
             discriminator: 'project',
         },
-
+        {
+            id: "13",
+            title: "Lista de tarefas",
+            photo: photosToDo[0],
+            photoCollection: photosToDo,
+            description: `
+                Esse projeto foi desenvolvido enquanto eu estava estudando o uso do localstorage para persitência temporária de dados usando o armazenamento do próprio navegador.
+            `,
+            demo: "https://todo-tasks-react.vercel.app/",
+            github: "https://github.com/gabriel360p/todo-tasks-react.git",
+            badge: "React, Styled-Components",
+            duration: "1 dia",
+            functions: [
+                'Salvar tarefa no localstorage',
+                'Marcar tarefa como concluída',
+                'Editar Tarefa',
+                'Apagar Tarefa',
+            ],
+            desafios: `
+            Persitência dos dados no localstorage, simulando um banco de dados.
+            `,
+            // desafios:``,
+            status: true,
+            discriminator: 'project',
+        },
+        {
+            id: "13",
+            title: "Notas",
+            photo: photosNOTEs[0],
+            photoCollection: photosNOTEs,
+            description: `
+                Esse projeto foi desenvolvido enquanto eu estava estudando o uso do localstorage para persitência temporária de dados usando o armazenamento do próprio navegador.
+            `,
+            demo: "https://noteon-react.vercel.app/",
+            github: "https://github.com/gabriel360p/react-notes.git",
+            badge: "React, Styled-Components",
+            duration: "1 dia",
+            functions: [
+                'Salvar nota no localstorage',
+                'Editar nota',
+                'Atribuir uma cor para anotação',
+                'Apagar nota',
+            ],
+            desafios: `
+            Persitência dos dados no localstorage, simulando um banco de dados.
+            `,
+            // desafios:``,
+            status: true,
+            discriminator: 'project',
+        },
     ]
