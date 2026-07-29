@@ -52,6 +52,7 @@ import type { Certificate } from '../types/CertificateType';
 import { Modal } from '../components/Modal/Modal';
 import { certificados as certificates } from '../services/CertificatesService';
 import { XIcon } from '@phosphor-icons/react/dist/ssr';
+import { Button } from '../components/Button';
 
 function App() {
 	const [easterEgg, setEasterEgg] = useState<boolean>(false);
@@ -59,6 +60,13 @@ function App() {
 	const [certificados, setCertificados] = useState<Certificate[]>();
 	const [modalState, setModalState] = useState<boolean>(false);
 	const [modalData, setModalData] = useState<Project | Certificate | undefined>();
+
+	const [showProjects, setShowProjects] = useState(false);
+
+	function handleShowProjects() {
+		setShowProjects(!showProjects)
+		console.log(showProjects)
+	}
 
 	function handleEasterEgg() {
 		setEasterEgg(!easterEgg)
@@ -509,42 +517,62 @@ function App() {
 								Meus últimos projetos
 							</h1>
 						</div>
+						{!showProjects && (
 
-						<div className="w-full px-4">
-							<Swiper
-								modules={[Autoplay, Mousewheel]}
-								mousewheel
-								autoplay={{
-									delay: 8000,
-								}}
-								breakpoints={{
-									0: {
-										slidesPerView: 1,
-									},
-									768: {
-										slidesPerView: 2,
-									},
-									1024: {
-										slidesPerView: 3,
-									},
-									1440: {
-										slidesPerView: 4,
-									},
-								}}
-								// spaceBetween={ }
-								className="w-full"
-							>
+							<div className="w-full px-4">
+								<Swiper
+									modules={[Autoplay, Mousewheel]}
+									mousewheel
+									autoplay={{
+										delay: 8000,
+									}}
+									breakpoints={{
+										0: {
+											slidesPerView: 1,
+										},
+										768: {
+											slidesPerView: 2,
+										},
+										1024: {
+											slidesPerView: 3,
+										},
+										1440: {
+											slidesPerView: 4,
+										},
+									}}
+									// spaceBetween={ }
+									className="w-full"
+								>
+									{projects?.map((project) => (
+										<SwiperSlide key={project.id}>
+											<div className="flex justify-center items-center p-2">
+												<CardProject
+													project={project}
+													onClick={() => handleModal(true, project)}
+												/>
+											</div>
+										</SwiperSlide>
+									))}
+								</Swiper>
+							</div>
+						)}
+
+						{showProjects && (
+							<div className='flex flex-row flex-wrap justify-center items-center gap-x-8 gap-y-8'>
 								{projects?.map((project) => (
-									<SwiperSlide key={project.id}>
-										<div className="flex justify-center items-center p-2">
-											<CardProject
-												project={project}
-												onClick={() => handleModal(true, project)}
-											/>
-										</div>
-									</SwiperSlide>
+									<CardProject
+										key={project.id}
+										project={project}
+										onClick={() => handleModal(true, project)}
+									/>
 								))}
-							</Swiper>
+							</div>
+						)}
+
+						<div>
+							<Button title={
+								showProjects ? 'Ver Menos' : 'Ver Mais'
+							} variant='outline' onclick={() => handleShowProjects()} />
 						</div>
 					</section>
 				</FadeInSection>
