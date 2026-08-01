@@ -232,9 +232,7 @@ function App() {
 						</div>
 					</section>
 					{/* FIM DO HERO */}
-				</FadeInSection>
 
-				<FadeInSection>
 					{/* SOBRE MIM */}
 					<section id="sobre"
 						className="

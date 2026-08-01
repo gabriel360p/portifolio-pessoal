@@ -27,13 +27,14 @@ export function FadeInSection({ children, className }: FadeInSectionProps) {
         }
 
         return () => observer.disconnect();
-    }, [])
+    })
     return (
         <div
             ref={ref}
             className={`
-    flex justify-center
+    flex items-center justify-center flex-col
     w-full
+    overflow-x-hidden
     transition-all
     duration-700
     ease-out
