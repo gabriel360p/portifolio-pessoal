@@ -145,7 +145,8 @@ function App() {
 									<div className='flex gap-2 ps-9 md:justify-start md:ps-0 items-center'>
 										<GreaterThanIcon size={20} />
 										<p className="font-bold lg:text-2xl">
-											Desenvolvedor Front-end
+											{/* Desenvolvedor Full-Stack */}
+											Desenvolvedor Front-End
 										</p>
 									</div>
 									<p className="text-[15px] lg:text-xl">

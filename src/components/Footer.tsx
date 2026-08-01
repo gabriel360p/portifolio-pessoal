@@ -1,4 +1,5 @@
 import { ArrowUpIcon, EnvelopeSimpleIcon, GithubLogoIcon, InstagramLogoIcon, LinkedinLogoIcon, WhatsappLogoIcon } from '@phosphor-icons/react'
+// import logo from '../assets/logo/logo-cut-remove-bg-2png.png'
 import logo from '../assets/logo/logo-cut-removebg.png'
 import { sendMessage } from '../utils/MandarMensagem'
 import { messageBase } from '../utils/Messages'
@@ -68,7 +69,7 @@ export function Footer() {
                     <EnvelopeSimpleIcon size={28} className="hero-icons-contact" />
                 </a>
                 <a
-                    className='hover:-translate-y-2 active:-translate-y-1'
+                    className='hover:-translate-y-1 active:-translate-y-0.5'
                     href="#inicio"
                 >
                     <ArrowUpIcon size={28} className="desktop-menu-items" />
