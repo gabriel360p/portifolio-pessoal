@@ -1,6 +1,7 @@
 import {
 	BriefcaseIcon,
 	CheckCircleIcon,
+	UserIcon,
 	ClockIcon,
 	CodeIcon,
 	CurrencyCircleDollarIcon,
@@ -16,6 +17,10 @@ import {
 	ShoppingCartIcon,
 	StudentIcon,
 	WhatsappLogoIcon,
+	QuestionIcon,
+	StackIcon,
+	MedalIcon,
+	ClipboardTextIcon,
 } from '@phosphor-icons/react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -154,7 +159,7 @@ function App() {
 									</p>
 								</div>
 
-								<div className="flex gap-3 justify-center lg:justify-start">
+								<div className="flex gap-1 md:gap-3 justify-center lg:justify-start">
 
 									<div className='flex cursor-pointer button-normal gap-2 justify-center items-center'>
 										<CodeIcon size={20} />
@@ -251,7 +256,11 @@ function App() {
 						"
 					>
 						<div className="flex flex-col items-start justify-center leading-7 lg:gap-3">
-							<p className="font-bold text-text-primary lg:text-xl">SOBRE MIM</p>
+							<div className="flex gap-3 justify-center items-center">
+								<UserIcon size={25} className='text-text-primary icons-scale' />
+								<p className="font-bold text-text-primary lg:text-xl">SOBRE MIM</p>
+
+							</div>
 							<p className="font-extrabold text-white lg:text-2xl">Quem sou eu?</p>
 							<p className="text-justify text-white lg:leading-8 lg:text-lg">
 								Sou formado em TI pelo IFRN campus Caicó, tenho experiência no
@@ -313,7 +322,10 @@ function App() {
 						"
 					>
 						<div className="text-center">
-							<p className="font-extrabold text-text-primary">COMO POSSO AJUDAR</p>
+							<div className='flex gap-1.5 justify-center items-center'>
+								<QuestionIcon size={25} className='text-text-primary icons-scale' />
+								<p className="font-extrabold text-text-primary">COMO POSSO AJUDAR</p>
+							</div>
 							<h1 className="font-extrabold text-white">
 								Soluções para impulsionar{' '}
 								<span className="text-text-primary">seu negócio</span> online
@@ -369,7 +381,10 @@ function App() {
 						"
 					>
 						<div className="text-center">
-							<p className="font-extrabold text-text-primary">TECNOLOGIAS</p>
+							<div className='flex gap-2 justify-center items-center'>
+								<StackIcon size={25} className="icons-scale text-text-primary" />
+								<p className="font-extrabold text-text-primary">TECNOLOGIAS</p>
+							</div>
 							<h1 className="font-extrabold text-white">
 								Minhas principais ferramentas
 							</h1>
@@ -444,8 +459,11 @@ function App() {
 						"
 					>
 						<div className="text-center">
-							<p className="font-extrabold text-text-primary">FORMAÇÕES</p>
-							<h1 className="font-extrabold text-white">Certificados</h1>
+							<div className='flex justify-center items-center gap-1.5'>
+								<MedalIcon size={25} className='icons-scale text-text-primary' />
+								<p className="font-extrabold text-text-primary">FORMAÇÕES</p>
+							</div>
+							<h1 className="font-extrabold text-white mt-1">Certificados</h1>
 						</div>
 
 						<div className='flex w-full justify-center items-center'>
@@ -509,11 +527,14 @@ function App() {
 						"
 					>
 						<div className="text-center">
-							<p className="font-extrabold text-text-primary">
-								PROJETOS
-							</p>
+							<div className='flex justify-center items-center gap-2'>
+								<CodeIcon size={25} className='icons-scale text-text-primary' />
+								<p className="font-extrabold text-text-primary">
+									PROJETOS
+								</p>
+							</div>
 
-							<h1 className="font-extrabold text-white">
+							<h1 className="font-extrabold text-white mt-1">
 								Meus últimos projetos
 							</h1>
 						</div>
@@ -598,7 +619,10 @@ function App() {
 						"
 					>
 						<div className="text-center">
-							<p className="font-extrabold text-text-primary">MEU PROCESSO DE TRABALHO</p>
+							<div className='flex justify-center items-center gap-1.5'>
+								<ClipboardTextIcon className='icons-scale text-text-primary' size={25} />
+								<p className="font-extrabold text-text-primary">MEU PROCESSO DE TRABALHO</p>
+							</div>
 							<h1 className="font-extrabold text-white">
 								Simples, transparente e eficiente
 							</h1>
@@ -630,7 +654,10 @@ function App() {
 						<div className='flex flex-row flex-wrap justify-center w-full gap-5 lg:gap-15 py-5 items-center'>
 
 							<div className='flex flex-col gap-2 justify-center items-center px-3 lg:px-5'>
-								<p className='text-text-primary text-center'>VAMOS TRABALHAR JUNTOS?</p>
+								<div className='flex gap-1.5 justify-center items-center'>
+									<RocketLaunchIcon size={25} className='icons-scale text-text-primary' />
+									<p className='text-text-primary text-center'>VAMOS TRABALHAR JUNTOS?</p>
+								</div>
 								<h2 className='text-2xl font-bold text-center'>Tem um <span className='text-text-primary'>projeto</span> em mente?</h2>
 								<p className='text-center'>Vamos tirar do papel e vamos transformar em realidade!</p>
 							</div>

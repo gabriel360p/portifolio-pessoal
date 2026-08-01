@@ -163,6 +163,11 @@ a {
   overflow:hidden;
 }
 
+.icons-scale{
+  @apply
+  hover:scale-110 active:scale-110
+}
+
 @keyframes backgroundFade {
   from {
     opacity: 0;

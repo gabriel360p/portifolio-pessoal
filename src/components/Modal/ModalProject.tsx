@@ -16,7 +16,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
             {/* Header do Modal */}
             <div className="flex gap-3 flex-row w-full items-center justify-start">
                 <div>
-                    {<CodeIcon size={30} className="active:scale-110 hover:scale-110 text-text-primary" />}
+                    {<CodeIcon size={30} className="icons-scale text-text-primary" />}
                 </div>
                 <div className="flex flex-col">
                     <h2 className="font-bold md:text-xl">{projeto.title}</h2>
@@ -42,7 +42,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                         <div className="flex flex-col gap-1">
                             {/* Sobre o projeto */}
                             <div className="flex text-text-primary gap-2 items-center justify-start ">
-                                <ArticleIcon className="hover:scale-105 active:scale-105" size={20} />
+                                <ArticleIcon className="icons-scale" size={20} />
                                 <h2>Sobre o projeto</h2>
                             </div>
                             <p>{projeto.description}</p>
@@ -51,7 +51,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                         <div className="flex flex-col gap-2">
                             {/* Status do projeto */}
                             <div className="flex text-text-primary gap-2 items-center justify-start ">
-                                <GearSixIcon className="hover:scale-105 active:scale-105" size={20} />
+                                <GearSixIcon className="icons-scale" size={20} />
                                 <h2>Status do projeto</h2>
                             </div>
 
@@ -67,7 +67,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                         <div className="flex flex-col gap-2">
                             {/* Tecnologias */}
                             <div className="flex text-text-primary gap-2 items-center justify-start ">
-                                <StackIcon size={20} className="hover:scale-105 active:scale-105" />
+                                <StackIcon size={20} className="icons-scale" />
                                 <h2>Tecnologias Utilizadas</h2>
                             </div>
                             <div className="flex flex-row flex-wrap gap-y-2">
@@ -85,7 +85,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                         {/* Principais funcionalidades */}
                         <div className="flex flex-col gap-1">
                             <div className="text-text-primary flex gap-2 items-center justify-start">
-                                <StarIcon size={20} className="hover:scale-105 active:scale-105" />
+                                <StarIcon size={20} className="icons-scale" />
                                 <h2 >Principais funcionalidades</h2>
                             </div>
 
@@ -104,7 +104,7 @@ export function ModalProject({ projeto }: ModalCeProjectProps) {
                         <div className="flex flex-col">
                             {/* Desafios */}
                             <div className="flex items-center gap-2 justify-start text-text-primary">
-                                <LightningIcon size={20} className="hover:scale-105 active:scale-105" />
+                                <LightningIcon size={20} className="icons-scale" />
                                 <h2>Desafios enfrentados</h2>
                             </div>
                             <p>{projeto.desafios}</p>
